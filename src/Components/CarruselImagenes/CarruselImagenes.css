@@ -1,0 +1,30 @@
+@media only screen and (min-width:200px) and (max-width:550px){ /*----------Móvil----------*/
+    /* .altura_carrusel{
+        height: 280px !important;
+    } */
+    .order_1{
+        order: 1;
+        width: 100%;
+    }
+    .order_2{
+        order: 2;
+    }
+    .order_3{
+        order: 3;
+    }
+    .wrap{
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (min-width:851px) and  (max-width:1664px){ /*----------Pantalla chica----------*/
+    /* .altura_carrusel{
+        height: 560px !important;
+    } */
+}
+
+@media only screen and (min-width:1665px) { /*----------Pantalla grande----------*/
+    /* .altura_carrusel{
+        height: 860px !important;
+    } */
+}

@@ -1,0 +1,196 @@
+/*----------Collapsible----------*/
+.keyboard-focused .collapsible-header:focus{
+    background: transparent !important;
+}
+
+.titulacion-collapsible{
+    border: none;
+    box-shadow: none;
+}
+.titulacion-collapsible > li > div{
+    background: transparent !important;
+    padding: 0px !important;
+    border: none;
+}
+
+.collapsible_cine{
+    box-shadow: none;
+    border: none;
+    color: #ffffff;
+    background: #009B83;
+}
+.collapsible_cine > li > div{
+    border: none;
+    background: #009B83;
+}
+/*----------Fin Collapsible----------*/
+
+
+
+/*----------Contenedor----------*/
+.contenedor_7{
+    padding: 0px 16%;
+}
+
+/* .contenedor_8{
+    padding-left: 55px;
+} */
+
+.contenedor_titulacion_secundario{
+    padding: 0 112px;
+    margin-bottom: 50px;
+}
+/*----------Fin Contenedor----------*/
+
+
+
+/*----------Flex----------*/
+.flex_padre_titulacion{
+    display: flex;
+    justify-content: center;
+}
+
+.flex_hijo_titulacion{
+    display: flex;
+    justify-content: center;
+    width: 33.33333%;
+}
+
+.flex_hijo_titulacion_contenido{
+    display: flex;
+    align-items: center;
+}
+
+
+/* .flex_hijo_5{
+    margin: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex_hijo_5 h2{
+    margin-top: 15px;
+} */
+
+/* .flex_padre_grados{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+} */
+/*---------Fin Flex---------*/
+
+
+
+/*----------Texto y título----------*/
+.titulacion_titulo{
+    font-size: 55px;
+    font-family: 'Caav';
+}
+
+.titulo_2{ 
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.titulo_4{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/*----------Fin Texto y título----------*/
+
+
+
+/* .borde_1{
+    border-right: solid 1px #124667;
+    border-left:solid 1px #124667;
+    margin: 0;
+} */
+
+.padding_1{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+
+
+@media only screen and (min-width:200px) and (max-width:550px){ /*----------Móvil----------*/
+    .contenedor_titulacion_secundario{
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .contenedor_7{
+        padding: 0%;
+    }
+
+    /* .contenedor_8{
+        padding: 0px 15%;
+    } */
+
+    /* .contenedor_titulacion_grados{
+        text-align: center;
+    } */
+
+    /* .flex_padre_grados{
+        width: 100%;
+    } */
+
+    .titulo_2{
+        font-size: 12px;
+    }
+    
+    /* .borde_1{
+        border: none;
+    } */
+
+    .flex_hijo_titulacion{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .flex_padre_titulacion{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .bordes_titulacion{
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+    }
+}
+
+@media only screen and (min-width:551px) and (max-width:850px){ /*----------Tablet----------*/
+    .contenedor_7{
+        padding: 0px;
+    }
+
+    .bordes_titulacion{
+        border-left: 1px solid;
+        border-right: 1px solid;
+    }
+
+    /* .contenedor_8{
+        padding-left: 12%;
+    } */
+}
+
+@media only screen and (min-width:851px) and  (max-width:1664px){ /*----------Pantalla chica----------*/
+    .contenedor_7{
+        padding: 0px 5%;
+    }
+
+    .bordes_titulacion{
+        border-left: 1px solid;
+        border-right: 1px solid;
+    }
+}
+
+@media only screen and (min-width:851px){
+    .bordes_titulacion{
+        border-left: 1px solid;
+        border-right: 1px solid;
+    }    
+}

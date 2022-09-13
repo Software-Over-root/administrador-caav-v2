@@ -1,0 +1,471 @@
+/*----------Box----------*/
+.admision{
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.texto_admision_punto::before{
+    content: url("../../Images/Icon/56.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: -10px;
+    margin-top: -3px;
+    padding-bottom: 5px;
+    position: absolute;
+}
+
+.box_3{
+    margin: 0px 10px;
+    margin-bottom: 20px;
+    width: 360px;
+    padding: 0px 2%;
+    border: solid 1px #707070;
+}
+
+.box_4{
+    margin: 0px 10px;
+    margin-bottom: 20px;
+    width: 238px;
+    padding: 0px 2%;
+    border: solid 1px #707070;
+}
+
+.box_7{
+    width: 374px;
+    margin: 15px 28px
+}
+.box_7 p{
+    margin: 0px 6px !important;
+}
+
+.box_8{
+    margin: 0px 10px;
+    margin-bottom: 20px;
+    width: 410px;
+    padding: 0px 2%;
+    border: solid 1px #707070;
+}
+
+.box_18{
+    width: 336px;
+    margin: 15px 28px
+}
+.box_18 p{
+    margin: 0px 12px !important;
+}
+
+.caja_1{
+    width: 645px;
+}
+
+.caja_2{
+    margin: 0px 15px;
+    width: 206px;
+}
+
+.caja_2_1{
+    width: 245px;
+}
+
+.caja_9{
+    margin-bottom: 50px;
+    width: 569px;
+}
+
+.caja_10{
+    width: 1256px;
+}
+
+.contactos{
+    display: flex;
+    justify-content: center;
+}
+
+.depositos{
+    margin-left: -13px;
+    width: 200px;
+}
+/*----------Fin Box----------*/
+
+
+
+/*----------Contenedores----------*/
+.contenedor_5{
+    width: 300px;
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+}
+/*----------Fin Contenedores----------*/
+
+
+
+/*----------Flex----------*/
+.flex_padre_4{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.flex_padre_4_pago{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flex_3{
+    width: 767px;
+    margin: 15px 26px ;
+}
+.flex_3 p{
+    margin: 0px 10px !important;
+}
+
+.flex_padre_admision_iconos{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+/*----------Fin Flex----------*/
+
+
+
+/*----------Fondos----------*/
+.fondo_2{
+    background-color: rgb(168, 11, 56);
+    color: white;
+    padding: 15px 20%;
+}
+.fondo_2 > .titulo_2{
+    margin-bottom: -18px !important;
+}
+
+.fondo_5{
+    color: white;
+    background-color: #00496C;
+    border-radius: 30px 30px 0px 0px;
+}
+
+.fondo_6{
+    background-color: #A80938;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.fondo_7{
+    background-color: #E3E3E3;
+    border-radius: 0px 0px 30px 30px;
+}
+.fondo_7 .texto_3_aspirantes{
+    padding: 20px 5% 10px;
+    font-size: 13px;
+}
+/*----------Fin Fondos----------*/
+
+
+
+/*----------Imagenes----------*/
+.imagen_aspirantes{
+    width: 100%;
+}
+
+.imagen_aspirantes_1{
+    width: 63px;
+    height: 63px;
+    border-radius: 100%;
+    /* margin-top: 10px; */
+    margin-bottom: 15px;    
+}
+/*----------Fin Imagenes----------*/
+
+
+
+/*----------Titulos y textos----------*/
+.titulo_2{ 
+    font-size: 15px !important;
+    font-weight: bold;
+}
+
+.titulo_5{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.titulo_8{
+    font-size: 36px;
+}
+
+.titulo_11{
+    font-size: 34px;
+    font-family: 'caav';
+    color: #00496C;
+    margin: 20px 0px;
+    line-height: 35px;
+}
+.titulo_11_movil{
+    font-size: 34px;
+    font-family: 'caav';
+    color: #00496C;
+    margin: 20px 0px;
+    line-height: 35px;
+}
+
+.texto_2{
+    color: #fff;
+    font-size: 30px;
+}
+
+.texto_6{
+    font-size: 55px;
+    font-Weight: bold;
+    margin-top: 25px;
+    margin-bottom: 33px;
+}
+/*----------Fin Titulos y textos----------*/
+
+
+
+.invisible_3{
+    display: none;
+}
+
+.invisible_movil_3{
+    display: flex;
+}
+
+.texto_aspirantes_punto::before{
+    content: url("../../Images/Icon/54.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: -10px;
+    margin-top: -3px;
+    padding-bottom: 5px;
+    position: absolute;
+}
+
+.titulo_asp_nv{
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+@media only screen and (min-width:200px) and (max-width:550px){ /*----------Móvil----------*/
+    .titulo_asp_nv{
+        font-size: 16px;
+    }
+
+    .contenedor_chico_asp{
+        width: 65%;
+    }
+
+    /*----------Box----------*/
+    .admision{
+        margin-bottom: -5px;
+        margin-top: 20px;
+    }
+
+    .box_3{
+        width: 300px;
+        padding: 0px 10px;
+    }
+
+    .box_4{
+        width: 300px;
+        padding: 0px 10px;
+    }
+
+    .box_7{
+        text-align: center;
+        width: 244px;
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+
+    .box_8{
+        width: 300px;
+        padding: 0px 10px;
+    }
+
+    .box_18{
+        text-align: center;
+        width: 282px;
+        margin: 0%;
+        margin-bottom: 20px;
+    }
+
+    .caja_1{
+        width: 253px;
+    }
+
+    .caja_2{
+        width: 240px;
+        text-align: center;
+    }
+
+    .caja_2_1{
+        width: 100%;
+    }
+
+    .caja_9{
+        margin-bottom: 20px;
+        width: 210px;
+    }
+
+    .caja_10{
+        width: 100%;
+    }   
+    .caja_horarios{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .depositos{
+        width: 50%;
+        margin: 0px;
+    }
+    /*----------Fin Box----------*/
+
+
+
+    /*----------Contenedores----------*/
+    .contenedor_5{
+        margin-bottom: 20px;
+        width: 215px;
+        position: inherit;
+    }
+    .contenedor_5 img{
+        width: 44px;
+        height: 44px;
+    }
+    .contenedor_5 > .fondo_5{
+        padding: 10px 0px;
+    }
+    .contenedor_5 > .fondo_5> .texto_2{
+        font-size: 17px !important;
+    }
+    .contenedor_5 > .fondo_7> .texto_3_aspirantes{
+        font-size: 12px;
+        padding: 15px 0px 0px; 
+    }
+    /*----------Fin Contenedores----------*/
+
+
+
+    /*----------Flex----------*/
+    .flex_padre_4 > .titulo_2{
+        margin: 10px 0% !important;
+        font-size: 1px;
+    }
+    .flex_padre_4{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .flex_3{
+        text-align: center;
+        width: 282px;
+    }
+    .flex_padre_admision_iconos{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .flex_padre_4_pago{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    /*----------Fin Flex----------*/
+
+
+
+    /*----------Fondos----------*/
+    .fondo_2{
+        padding: 15px 5%;
+        text-align: center;
+    }
+
+    .fondo_5{
+        border-radius: 30px 30px 0px 0px;
+    }
+    /*----------Fin Fondos----------*/
+
+
+
+    /*----------Imagenes----------*/
+    .imagen_aspirantes_1{
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .imagen_despositos{
+        display: flex;
+        justify-content: center;
+    }
+    /*----------Fin Imagenes----------*/
+
+
+
+    /*----------Titulos y textos----------*/
+    .titulo_2{
+        font-size: 15px !important;
+    }
+
+    .titulo_8{
+        font-size: 22px;
+    }
+
+    .titulo_11_movil{
+        font-size: 18px;
+    }
+    /*----------Fin Titulos y textos----------*/
+
+
+
+    .invisible_3{
+        display: flex;
+    }
+
+    .invisible_movil_3{
+        display: none;
+    }
+}
+
+@media only screen and (min-width:551px) and (max-width:850px){ /*----------Tablet----------*/
+    .contenedor_5{
+        width: 260px !important;
+        height: 130px;
+        bottom: 100px;
+        right: 50px;
+    }
+    .contenedor_5 > .fondo_5 >.texto_2{
+        font-size: 17px;
+    }
+    .contenedor_5 > .fondo_7 >.texto_3_aspirantes{
+        font-size: 12px;
+        padding-bottom: 0px !important;
+    }
+
+    .titulo_8{
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width:851px) and  (max-width:1664px){ /*----------Pantalla chica----------*/
+    .contenedor_5{
+        width: 240px;
+        height: 130px;
+        bottom: 200px;
+        right: 50px;
+    }
+
+    /* .flex_padre_4{
+    justify-content: center !important;
+    } */
+}

@@ -1,0 +1,4 @@
+{
+    "production": "http://localhost",
+    "local": "http://localhost"
+}
