@@ -1,0 +1,449 @@
+
+@font-face {
+    font-family: 'Jost-ExtraBold';
+    src: url('../../../Font/Jost-ExtraBold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+.boton_licenciatura_2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    height: 43px;
+    background-color: #2B7DB9;
+    border: solid 1px #2B7DB9;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    padding: 0px 10px;
+    font-family: 'Montserrat';
+}
+.boton_licenciatura_2:hover{
+    box-shadow: 0px 0px 15px #2B7DB9;
+    transition: all 0.5s ease-in-out;
+}
+
+.boton_lic_folleto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    height: 43px;
+    background-color: #2B7DB9;
+    border: solid 1px #2B7DB9;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    padding: 0px 10px;
+    font-family: 'Montserrat';
+}
+.boton_licenciatura_1:focus{
+    background-color: #2B7DB9;
+}
+.boton_licenciatura_1:hover{
+    box-shadow: 0px 0px 15px #2B7DB9;
+    transition: all 0.5s ease-in-out;
+}
+
+.caja_5{
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contenedor_d3{
+    padding: 15px 10%;
+}
+
+.contenedor_2_d3{
+    padding: 30px 20%;
+}
+
+.contenedor_lic_plan{
+    padding: 0px 5%;
+}
+
+.flex_padre_cine{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.flex_1{
+    width: 321px;
+}
+
+.flex_2_d3{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.hijo_1_d3 p{
+    margin: 0px;
+}
+.hijo_1_d3 {
+    padding: 0px 5px 0px 0px;
+}
+
+.logo_yo_creo{
+    width: 150px;
+}
+
+.imagen_lic{
+    width: 50px;
+}
+
+.titulo_licenciatura{
+    margin-top: 10px;
+}
+
+/* .texto_licenciatura_perfil_ingreso_2{
+    font-size: 14px;
+    width: 475px;
+    line-height: 15px;
+    padding: 10px 20px;
+    margin: 0px 20px;
+    flex-wrap: wrap;
+} */
+
+/* .texto_3{
+    font-family: "Montserrat";
+    font-size: 14px;
+} */
+
+.texto_licenciatura_campo_trabajo_14{
+    width: 608px;
+    font-size: 14px;
+}
+
+.texto_lic_2{
+    font-size: 42px;
+    font-Weight: bold;
+    margin-top: 25px;
+    margin-bottom: 33px;
+}
+
+.numero_d3_l{
+    font-family: 'Montserrat-Bold';
+    font-weight: bolder;
+    font-size: 42px;
+    color: #BA2049 !important;
+    padding: 10px 0px !important;
+}
+
+.texto_licenciatura_campo_trabajo_2 > ul > li::before{
+    content: url("../../../Images/Icon/56.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: -10px;
+    margin-top: -3px;
+    padding-bottom: 5px;
+    position: absolute;
+}
+
+.texto_licenciatura_campo_trabajo_3 > ul > li::before{
+    content: url("../../../Images/Icon/56.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: -10px;
+    margin-top: -3px;
+    padding-bottom: 5px;
+    position: absolute;
+}
+
+.texto_licenciatura_campo_trabajo_4_c{
+    width: 535px;
+    font-size: 14px;
+}
+
+
+@media only screen and (min-width:200px) and (max-width:550px){ /*----------Móvil----------*/
+    .boton_licenciatura_2{
+        display: flex;
+        color: #ffffff;
+        margin-top: 30px;
+        font-size: 13px;
+        font-weight: bold;
+        height: 43px;
+        background-color: #2B7DB9;
+        border: solid 1px #2B7DB9;
+        border-radius: 50px;
+        transition: all 0.5s ease-in-out;
+    }
+    .boton_licenciatura_2{
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+
+    .boton_lic_folleto{
+        display: flex;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: bold;
+        height: 43px;
+        background-color: #2B7DB9;
+        border: solid 1px #2B7DB9;
+        border-radius: 50px;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .caja_5{
+        width: 100%;
+        text-align: center;
+    }
+
+    .contenedor_d3{
+        padding: 15px 5%;
+    }
+
+    .contenedor_2_d3{
+        padding: 20px 10%;
+    }
+
+    .contenedor_lic_plan{
+        padding: 0px 10%;
+    }
+
+    .flex_movil_2{
+        padding: 0 0px 0 15px;
+    }
+
+    .flex_padre_cine{
+        justify-content: center;
+    }
+
+    .flex_1{
+        width: 100%;
+    }
+
+    
+
+    
+
+    
+
+    .hijo_1_d3{
+        width: 500px;
+    }
+
+    .logo_yo_creo{
+        width: 65px;
+        margin: 0;
+    }
+
+    .imagen_lic{
+        width: 28px;
+        margin-top: 10px;
+    }
+
+    .titulo_licenciatura{
+        margin-top: 20px;
+    }
+
+    /* .texto_licenciatura_perfil_ingreso_2{
+        font-size: 10px;
+        width: 579px;
+        line-height: 15px;
+        padding: 0;
+        margin: 10px 0 0 0;
+    } */
+
+    .titulo_lic_perfil{
+        font-size: 10px;
+    }
+
+    .titulo_lic_perfil_2{
+        font-size: 13px;
+    }
+
+    .texto_licenciatura_campo_trabajo_14{
+        width: 290px;
+        font-size: 10px;
+    }
+
+    .texto_lic_2{
+        font-size: 17px;
+        font-Weight: bold;
+        margin-top: 25px;
+        margin-bottom: 33px;
+    }
+
+    .numero_d3_l{
+        font-size: 20px;
+    }
+
+    .texto_licenciatura_campo_trabajo_4_c{
+        width: 315px;
+        font-size: 13px;
+    }
+
+    .movil_warp{
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (min-width:551px) and (max-width:850px){ /*----------Tablet----------*/
+
+    .texto_licenciatura_campo_trabajo_4_c{
+        width: 100%;
+        padding: 0px 70px;
+        font-size: 13px;
+    }
+
+    .boton_licenciatura_2{
+        display: flex;
+        color: #ffffff;
+        margin-top: 30px;
+        font-size: 13px;
+        font-weight: bold;
+        height: 43px;
+        background-color: #2B7DB9;
+        border: solid 1px #2B7DB9;
+        border-radius: 50px;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .contenedor_d3{
+        padding: 15px 10%;
+    }
+
+    .hijo_1_d3{
+        width: 33.33333%;
+    }
+
+    
+}
+
+@media only screen and (min-width:851px) and  (max-width:1664px){ /*----------Pantalla chica----------*/
+    .hijo_1_d3{
+        width: 33.33333%;
+    }
+
+    
+
+    
+}
+
+@media only screen and (min-width:1665px) { /*----------Pantalla grande----------*/
+    .hijo_1_d3{
+        width: 33.33333%;
+    }
+
+    
+
+    
+}
+
+
+/* nuevo css */
+
+.texto_licenciatura_cine_perfil_ingreso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 475px;
+    padding: 10px 0px !important;
+    margin: 0px 20px;
+    flex-wrap: wrap;
+}
+
+.flex_hijo_licenciatura_1{
+    width: 155px;
+    margin-right: 10px !important;
+}
+
+.flex_hijo_licenciatura_2{
+    width: 291px !important;
+}
+
+
+@media only screen and (min-width:200px) and (max-width:550px){
+    .flex_hijo_licenciatura_1{
+        width: 100%;
+        margin-right: 0;
+        padding-left: 0px;
+        margin-bottom: 20px;
+    }
+
+    .flex_movil_lic{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .flex_movil_lic > p{
+        width: 50%;
+    }
+
+    .flex_hijo_licenciatura_2{
+        width: 240px;
+        padding-left: 0px;
+    }
+
+    .texto_licenciatura_cine_perfil_ingreso{
+        width: 579px;
+        padding: 0px 0px 10px !important;
+        margin: -10px 0 0 0;
+    }
+
+    .altura_video_licenciatura{
+        height: 220px;
+    }
+}
+@media only screen and (min-width:551px) and (max-width:980px){
+    .flex_hijo_licenciatura_1{
+        width: 30%;
+        margin-right: 0px !important;
+    }
+
+    .flex_hijo_licenciatura_2{
+        width: 30% !important;
+        padding-left: 0px;
+    }
+
+    .texto_licenciatura_cine_perfil_ingreso{
+        width: 579px;
+        padding: 0px 0px 10px !important;
+        margin: -10px 0 0 0;
+    }
+
+    .altura_video_licenciatura{
+        height: 400px;
+    }
+}
+@media only screen and (min-width:981px) and (max-width:1664px){
+    .left-desktop{
+        text-align: left;
+        width: 100%;
+    }
+
+    .texto_licenciatura_cine_perfil_ingreso{
+        justify-content: flex-start;
+    }
+
+    .altura_video_licenciatura{
+        height: 500px;
+    }
+}
+@media only screen and (min-width:1665px){
+    .left-desktop{
+        text-align: left;
+        width: 100%;
+    }
+
+    .texto_licenciatura_cine_perfil_ingreso{
+        justify-content: flex-start;
+    }
+
+    .altura_video_licenciatura{
+        height: 600px;
+    }
+}
+/* fin - nuevo css */
