@@ -5,7 +5,7 @@ import "./Publicidad.css";
 const Publicidad = () => {
     return(
         <Fragment>
-            <div className='fondo_titulacion'>
+            <div className='fondo_titulacion' style={{position:"relative", zIndex:"-9"}}>
                 <div className='container contenedor_xch center' style={{paddingBottom:"1px", paddingTop:"1px"}}>
                     <p className='encabezadosCaav' style={{color:"#D75918", marginBottom:"0px", lineHeight:"22px"}}>
                         Marketing <br />

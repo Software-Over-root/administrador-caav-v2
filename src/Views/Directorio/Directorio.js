@@ -1,142 +1,121 @@
-import React, { Fragment, useEffect }  from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
+import React, { Fragment, useState }  from 'react';
 
-import Loader from '../../Components/Loader';
+import { useAuth } from '../../Context/Context';
 
-import "./Directorio.css";
+import SideNav from '../../Components/SideNav';
+import FormularioAgregar from '../../Components/FormularioAgregar';
+import FormularioEditar from '../../Components/FormularioEditar';
+import View from './View';
 
-import icono_tel from "../../Images/Icon/2.png";
-import icono_whats from "../../Images/Icon/54.png";
-import icono_mail from "../../Images/Icon/1.png";
-
-import tel from '../../Images/Icon/38.png';
-import mail from '../../Images/Icon/37.png';
-import whats from '../../Images/Icon/39.png';
-
-import img1 from '../../Images/escritorio/Directorio/1.png';
-
+import directorioHelper from '../../Helpers/Directorio';
 
 const Directorio = props => {
+    const { editar } = useAuth();
+
+    const [directorio, setDirectorio] = useState({
+        ...editar
+    });
+
+
+    const leerDato = e => {
+        setDirectorio({
+            ...directorio,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    const agregar = e => {
+        e.preventDefault();
+        directorioHelper.agregarDirectorio(directorio);
+    }
+
+    const actualizar = e => {
+        e.preventDefault();
+        directorioHelper.editarDirectorio(directorio, editar._id);
+    }
+
+    const eliminar = () => {
+        directorioHelper.eliminarDirectorio(editar._id);
+    }
+
 
     return (
-        <div>
-            <img src={img1} style={{width:"100%"}}/>
-
-            <div className='container center'>
-                <p className='encabezadosCaav' style={{margin:"15px 0px 10px 0px"}}>
-                    <span className='encabezadosMonserrat'>Dinos en qué </span><br/>
-                    podemos ayudarte.
-                </p>
-                <p>
-                    Nuestro horario de atención es de lunes a viernes<br/>
-                    de 10:00 am a 6:00 pm y sábados de 10:00 am a 2:00 pm.
-                </p>
-                <p>
-                    Lerdo de Tejada #2071 entre calle Marsella y Chapultepec,<br/>
-                    Colonia Americana, Guadalajara, Jalisco, México.
-                </p>
-                <div className='row'>
-                    <div className='col s12 m4 l4'>
-                        <img src={whats} style={{width:"20px", marginBottom:"-5px", marginTop:"10px"}} />
-                        <a target='blanck' href="https://wa.me/523318958778?text=¡Hola buen día! ¿Me podrías dar información?">
-                            <p style={{color:"black"}}>
-                                WhatsApp: +52 1 33 1895 8778
-                            </p>
-                        </a>
-                    </div>
-                    <div className='col s12 m4 l4'>
-                        <img src={tel} style={{width:"20px", marginBottom:"-5px", marginTop:"10px"}} />
-                        <a target='blanck' href="tel:3336152964">
-                            <p style={{color:"black", marginBottom:"0px"}}>33 36 15 29 64</p>
-                        </a>
-                        <a target='blanck' href="tel:3335877825">
-                            <p style={{color:"black", margin:"0px"}}>33 35 87 78 25</p>
-                        </a>
-                        <a target='blanck' href="tel:3335877824">
-                            <p style={{color:"black", margin:"0px"}}>33 35 87 78 24</p>
-                        </a>
-                        <a target='blanck' href="tel:3336158470">
-                            <p style={{color:"black", marginTop:"0px"}}>33 36 15 84 70</p>
-                        </a>
-                    </div>
-                    <div className='col s12 m4 l4'>
-                        <img src={mail} style={{width:"20px", marginBottom:"-5px", marginTop:"10px"}} />
-                        <a target='blanck' href="mailto:info@caav.mx?Subject=¡Hola buen día! &body=¡Hola buen día!%0E¿Me podrías dar más información?">
-                            <p style={{color:"black"}}>
-                                info@caav.mx
-                            </p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div className='container center'>
-                <p className='encabezadosCaav' style={{margin:"15px 0px 10px 0px"}}>
-                    <span className='encabezadosMonserrat'>¿Necesitas contactar a </span><br/>
-                    alguien en particular?
-                </p>
-                    
-                <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center", marginBottom:"20px"}}>
-                    {!props.directorio ? (
-                        <div style={{display:"flex", justifyContent:"center", alignItems:"center", height:"50vh", width:"100%"}}>
-                            <Loader />
+        <Fragment>
+            <SideNav />
+            <div className='row'>
+                <FormularioAgregar>
+                    <p className='titulo_1_admin'>Directorio</p>
+                    <form onSubmit={agregar}>
+                        <div className="input-field">
+                            <input onChange={leerDato} id="nombre" name='nombre' type="text" className="validate" />
+                            <label for="nombre">Nombre</label>
                         </div>
-                    ) : (
-                        props.directorio.map((dato) => (
-                            <div className='contenedor_directorio_1'>
-                                <div className='contenedor_directorio'>
-                                    <div>
-                                        <p className='texto_directorio'>
-                                            {dato.puesto}
-                                        </p>
-                                        <p className='texto_directorio_desc'>
-                                            {dato.nombre}
-                                        </p>                         
-                                    </div>
-                                    <div className='cuadrado'>
-                                        {dato.numero && (
-                                            <Fragment>
-                                                <div className='hover_directorio_d3'>
-                                                    {dato.whatsapp ? (
-                                                        <a target="_blanck" href={'https://wa.me/52' + dato.numero + '?text=¡Hola buen día! ¿Me podrías dar más información?'}>
-                                                            <img src={icono_whats}></img>                           
-                                                        </a>
-                                                    ) : (
-                                                        <a target="_blanck" href={'tel:' + dato.numero}>
-                                                            <img src={icono_tel}></img>                           
-                                                        </a>
-                                                    )}
-                                                </div>
-                                                <div className='hover_directorio_d3' style={{marginLeft: '25px'}}>
-                                                    <a target="_blanck" href={'mailto:' + dato.correo + '?Subject=¡Hola buen día! &body=¡Hola buen día!%0E¿Me podrías dar más información?'} type="">
-                                                        <img src={icono_mail}></img>
-                                                    </a>
-                                                </div>
-                                            </Fragment>
-                                        )}
-                                    </div>                                                                                          
-                                </div>
-                            </div>
-                        ))
-                    )}                
-                </div>
-            </div>   
-        </div>       
-    );
+                        <div className="input-field">
+                            <input onChange={leerDato} id="puesto" name='puesto' type="text" className="validate" />
+                            <label for="puesto">Puesto</label>
+                        </div>
+                        <div className="input-field">
+                            <input onChange={leerDato} id="correo" name='correo' type="text" className="validate" />
+                            <label for="correo">Correo</label>
+                        </div>
+                        <div className="input-field">
+                            <input onChange={leerDato} id="numero" name='numero' type="text" className="validate" />
+                            <label for="numero">Numero</label>
+                        </div>
+                        <div className="input-field">
+                            <input onChange={leerDato} id="posicion" name='posicion' type="text" className="validate" />
+                            <label for="posicion">Posicion</label>
+                        </div>
 
+                        <div className='botonn_1_admin' style={{marginTop:"10px"}}>
+                            <button type='submit'>
+                                Agregar persona
+                            </button>
+                        </div>
+                    </form>
+                </FormularioAgregar>
+                <FormularioEditar>
+                    <p className='titulo_1_admin'>Editar directorio</p>
+                    <form onSubmit={actualizar}>
+                        <div className="input-field">
+                            <input onChange={leerDato} defaultValue={editar.nombre} id="nombre" name='nombre' type="text" className="validate" />
+                            <label className='active' for="nombre">Nombre</label>
+                        </div>
+                        <div className="input-field">
+                            <input onChange={leerDato} defaultValue={editar.puesto} id="puesto" name='puesto' type="text" className="validate" />
+                            <label className='active' for="puesto">Puesto</label>
+                        </div>
+                        <div className="input-field">
+                            <input onChange={leerDato} defaultValue={editar.correo} id="correo" name='correo' type="text" className="validate" />
+                            <label className='active' for="correo">Correo</label>
+                        </div>
+                        <div className="input-field">
+                            <input onChange={leerDato} defaultValue={editar.numero} id="numero" name='numero' type="text" className="validate" />
+                            <label className='active' for="numero">Numero</label>
+                        </div>
+                        <div className="input-field">
+                            <input onChange={leerDato} defaultValue={editar.posicion} id="posicion" name='posicion' type="text" className="validate" />
+                            <label className='active' for="posicion">Posicion</label>
+                        </div>
+
+                        <div className='botonn_1_admin' style={{marginTop:"10px"}}>
+                            <button type='submit'>
+                                Actualizar persona
+                            </button>
+                        </div>
+                    </form>
+                    <div className='botonn_2_admin' style={{marginTop:"10px"}}>
+                        <button onClick={eliminar}>
+                            Eliminar persona
+                        </button>
+                    </div>
+                </FormularioEditar>
+                <View/>
+                
+            </div>
+        </Fragment>
+    );
 }
 
 
-export default compose(
-    firestoreConnect(props => [ 
-        { 
-            collection: 'directorio',
-            orderBy: 'posicion'
-        } 
-    ]),
-    connect(({ firestore: { ordered }}, props ) => ({
-        directorio: (ordered.directorio)
-    }))
-)(Directorio);
+export default Directorio;

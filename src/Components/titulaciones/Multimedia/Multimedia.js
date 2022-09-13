@@ -5,7 +5,7 @@ import "./Multimedia.css";
 const Multimedia = () => {
     return(
         <Fragment>
-            <div className='fondo_titulacion'>
+            <div className='fondo_titulacion' style={{position:"relative", zIndex:"-9"}}>
                 <div className='container contenedor_xch center' style={{paddingBottom:"1px", paddingTop:"1px"}}>
                     <p className='encabezadosCaav' style={{color:"#47BFDA", marginBottom:"0px", lineHeight:"22px"}}>
                         Multimedia <br />

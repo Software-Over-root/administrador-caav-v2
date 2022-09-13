@@ -7,7 +7,7 @@ const FormularioEditar = props => {
                 
             </div>
             <div className='col s3 hijo_fixed'>
-                <div className='sombra' style={{marginTop:"80px", maxHeight:"50vh", overflow:"auto"}}>
+                <div className='sombra' style={{marginTop:"80px", maxHeight:"80vh", overflow:"auto"}}>
                     {props.children}
                 </div>
             </div>

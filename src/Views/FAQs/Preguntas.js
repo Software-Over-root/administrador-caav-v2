@@ -1,8 +1,5 @@
 import React, {useState, Fragment}  from 'react';
 
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
 import { useAuth } from '../../Context/Context';
 
 import SideNav from '../../Components/SideNav';
@@ -31,12 +28,21 @@ const Preguntas = props => {
 
     const agregar = e => {
         e.preventDefault();
-        preguntasHelper.agregarPregunta(pregunta);
+        let body = {
+            ...pregunta,
+            ...editar
+        }
+        preguntasHelper.agregarPregunta(body);
     }
 
     const actualizar = e => {
         e.preventDefault();
-        preguntasHelper.editarPregunta(pregunta, editar._id);
+        let body = {
+            ...editar,
+            ...pregunta
+        }
+        console.log(body);
+        preguntasHelper.editarPregunta(body, editar._id);
     }
 
     const eliminar = () => {
@@ -56,22 +62,8 @@ const Preguntas = props => {
                             <label for="pregunta">Pregunta</label>
                         </div>
 
-                        <div>
+                        <div id='ckedittor_contenedor'>
                             <p>Respuesta</p>
-                            <CKEditor
-                                editor={ ClassicEditor }
-                                onReady={ editor => {
-                                    // You can store the "editor" and use when it is needed.
-                                    console.log( 'Editor is ready to use!', editor );
-                                } }
-                                onChange={ ( event, editor ) => {
-                                    const data = editor.getData();
-                                    setPregunta({
-                                        ...pregunta,
-                                        respuesta: data
-                                    })
-                                } }
-                            />
                         </div>
 
                         <div className='botonn_1_admin' style={{marginTop:"10px"}}>
@@ -89,23 +81,8 @@ const Preguntas = props => {
                             <label className='active' for="pregunta">Pregunta</label>
                         </div>
 
-                        <div>
+                        <div id='ckedittor_contenedor_editar'>
                             <p>Respuesta</p>
-                            <CKEditor
-                                editor={ ClassicEditor }
-                                data={editar.respuesta}
-                                onReady={ editor => {
-                                    // You can store the "editor" and use when it is needed.
-                                    console.log( 'Editor is ready to use!', editor );
-                                } }
-                                onChange={ ( event, editor ) => {
-                                    const data = editor.getData();
-                                    setPregunta({
-                                        ...pregunta,
-                                        respuesta: data
-                                    })
-                                } }
-                            />
                         </div>
 
                         <div className='botonn_1_admin' style={{marginTop:"10px"}}>
