@@ -1,11 +1,13 @@
+// fixme: falta agregar blogs, se supone que estan comentados pero falta hacerlos
+
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from '../Views/Login';
 
 import Index from '../Views/Index/Index';
-// import Directorio from '../Views/Directorio/Directorio';
-// import Profesores from '../Views/Profesores/Profesores';
+import Directorio from '../Views/Directorio/Directorio';
+import Profesores from '../Views/Profesores/Profesores';
 import Calendario from '../Views/Calendario/Calendario';
 import Reinscripcion from '../Views/Reinscripcion/Reinscripcion';
 import Titulacion from '../Views/Titulacion/Titulacion';
@@ -32,8 +34,8 @@ const RouterFunction = () => {
                 <Route path="/" element={<Login />} />
 
                 <Route path="/index" element={<Index />} />
-                {/* <Route path="/directorio" element={<Directorio />} /> */}
-                {/* <Route path="/profesores" element={<Profesores />} /> */}
+                <Route path="/directorio" element={<Directorio />} />
+                <Route path="/profesores" element={<Profesores />} />
                 <Route path="/calendario" element={<Calendario />} />
                 <Route path="/reinscripcion" element={<Reinscripcion />} />
                 <Route path="/titulaciones" element={<Titulacion />} />

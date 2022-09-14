@@ -8,7 +8,7 @@ body {
 }
 
 .componente_editable_padre{
-  background: #ffffff78;
+  background: #ffffff00;
   border: 5px solid #970D19 !important;
   padding-top: 30px;
   cursor: pointer;
@@ -18,9 +18,11 @@ body {
   background: #970d1978;
   transition: all ease-in-out 0.3s;
 }
-
 .componente_editable_padre ul li div{
   background: #ffffff00;
+}
+.componente_editable_padre div div .box_reinscripcion_costos{
+  background: #ffffff00 !important;
 }
 
 .componente_editable:hover{

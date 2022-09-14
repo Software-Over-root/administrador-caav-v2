@@ -1,5 +1,8 @@
 import React, {useEffect, useState}  from 'react';
+import ReactDOM from 'react-dom';
 import Swal from 'sweetalert2';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import { useAuth } from '../../Context/Context';
 
@@ -9,11 +12,10 @@ import "./Preguntas.css";
 
 import img4 from "../../Images/escritorio/Faqs/1.png";
 
-
 import FAQs from '../../Components/FAQs/FAQs'
 
 const Preguntas = props => {
-    const { setEditar } = useAuth();
+    const { setEditar, editar } = useAuth();
     const [preguntas, setPreguntas] = useState([{}]);
 
     useEffect(() => {
@@ -38,6 +40,21 @@ const Preguntas = props => {
         ventana.className = "ventana_editable col s3";
         let vista = document.getElementById("vista_preguntas");
         vista.className = "col s9";
+
+        let ckedittor_contenedor = document.getElementById("ckedittor_contenedor");
+        ReactDOM.render(
+            <CKEditor
+                editor={ ClassicEditor }
+                onChange={ ( event, editor ) => {
+                    const data = editor.getData();
+                    setEditar({
+                        ...editar,
+                        respuesta: data
+                    })
+                } }
+            />,
+            ckedittor_contenedor
+        );
     }
 
 

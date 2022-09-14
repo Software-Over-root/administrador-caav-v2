@@ -1,13 +1,15 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import M from 'materialize-css';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import { useAuth } from '../../Context/Context';
 
 import "./FAQs.css";
 
 const FAQs = porps => {
-    const { setEditar } = useAuth();
-    const [flag, setFlag] = useState(false);
+    const { setEditar, editar } = useAuth();
 
     useEffect(() => {
         var elems = document.querySelectorAll('.collapsible');
@@ -24,6 +26,23 @@ const FAQs = porps => {
         let vista = document.getElementById("vista_preguntas");
         vista.className = "col s9";
         setEditar(pregunta);
+
+        let ckedittor_contenedor = document.getElementById("ckedittor_contenedor_editar");
+        ReactDOM.render(
+            <CKEditor
+                data={pregunta.respuesta}
+                editor={ ClassicEditor }
+                onChange={ ( event, editor ) => {
+                    const data = editor.getData();
+                    setEditar({
+                        ...pregunta,
+                        ...editar,
+                        respuesta: data
+                    })
+                } }
+            />,
+            ckedittor_contenedor
+        );
     }
 
     return(
