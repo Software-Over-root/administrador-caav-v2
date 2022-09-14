@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'Caav';
+    src: url('./../../Font/Caav_oficial-Regular.otf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Kaus';
+    src: url('./../../Font/KaushanScript-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+body {
+    margin: 0;
+    font-family: 'Montserrat', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif, -apple-system, BlinkMacSystemFont,;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.cont_2{
+    padding: 0px 15%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.cont_3{
+    padding: 0px 10%;
+}
+.btn_regresar{
+    margin-bottom: 80px ;
+    width: 224px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    font-family: "Montserrat";
+    border-radius: 25px;
+    background-color: #970D19;
+}
+
+.box_archivos_2{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 23px;
+    font-family: "Montserrat";
+    color: #171B1E;
+    line-height: 23px;
+    margin-bottom: 50px;
+}

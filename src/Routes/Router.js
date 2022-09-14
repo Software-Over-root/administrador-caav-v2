@@ -15,11 +15,17 @@ import Admision from '../Views/Admision/Aspirantes';
 // import Becas from '../Views/Beca/Becas';
 import FAQs from '../Views/FAQs/Preguntas';
 
+
 // import LicenciaturaCine from '../Views/Licenciaturas/Cine/Cine';
 // import LicenciaturaAnimacion from '../Views/Licenciaturas/Animacion/Animacion';
 // import LicenciaturaMarketing from '../Views/Licenciaturas/Marketing/Marketing';
 // import LicenciaturaMultimedia from '../Views/Licenciaturas/Multimedia/Multimedia';
 
+import SolicitudReinscripcion from '../Views/Solicitud_reinscripcion/SolicitudReinscripcion';
+import Solicitud from '../Views/Solicitud/Solicitud';
+import ArchivosReinscripcion from '../Views/ArchivosReinscripcion/ArchivosReinscripcion';
+import Archivos from '../Views/Archivos/Archivos';
+import Archivo from '../Views/Archivo/Archivo';
 
 const RouterFunction = () => {
     return (
@@ -36,6 +42,13 @@ const RouterFunction = () => {
                 {/* <Route path="/becas" element={<Becas />} /> */}
                 <Route path="/preguntas-frecuentes" element={<FAQs />} />
                 <Route path="/proceso-admision" element={<Admision />} />
+
+                <Route path="/solicitud-reinscripciones" element={<SolicitudReinscripcion />} />
+                <Route path="/solicitud" element={<Solicitud />} />
+                <Route path="/archivos-reinscripciones" element={<ArchivosReinscripcion />} />
+                <Route path="/archivos" element={<Archivos />} />
+                <Route path="/archivo" element={<Archivo />} />
+
 
                 {/* <Route path="/licenciaturas/cine" element={<LicenciaturaCine />} /> */}
                 {/* <Route path="/licenciaturas/animacion" element={<LicenciaturaAnimacion />} /> */}
