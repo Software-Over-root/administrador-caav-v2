@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-var url_json = require("../../location.json");
+var url_json = require("../location.json");
 
 if (window.location.origin === ":3000") {
     url_json = url_json.local;
@@ -33,7 +33,7 @@ const Admins = {
               'Administrador agregado correctamente' ,
               'success'
             ).then(() => {
-              window.location.reload();
+              window.location.replace("/administradores");
             })
         } else {
             Swal.fire(
@@ -107,7 +107,7 @@ const Admins = {
                         'Administrador modificado correctamente' ,
                         'success'
                     ).then(() => {
-                        window.location.reload();
+                        window.location.replace("/administradores");
                     })
                 } else {
                     Swal.fire(
@@ -175,6 +175,24 @@ const Admins = {
                 )
             }
         })
+    },
+    login: async (correo, password) => {
+        let url = url_json + "/login"
+        let body = {
+            correo,
+            password
+        };
+        let request = {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        }
+
+        let response = await fetch(url, request);
+        let json = await response.json();
+        return json;
     }
 }
 

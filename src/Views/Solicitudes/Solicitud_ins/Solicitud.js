@@ -1,12 +1,15 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 import "./Solicitud.css"
 
-import icon1 from "../../Images/Icon/64.png"
+import icon1 from "../../../Images/Icon/64.png"
+
+import reinscripcionesDataHelper from '../../../Helpers/ReinscripcionesData';
+
 
 const Solicitud = () => {
-
-    const solicitud = {
+    const [solicitud, setSolicitud] = useState({
         nombre:"Hugo Eduardo Guerrero García",
         domicilio:"Camino de las galeanas #30",
         colonia:"El cortijo san Agustin",
@@ -23,23 +26,45 @@ const Solicitud = () => {
         telefonoEmpresa:"-",
         formatoPago:"Un solo pago",
         status:1
+    });
+
+    useEffect(() => {
+        let id = window.location.pathname.split("/")[2]
+        obtenerData(id);
+    },[]);
+
+    const obtenerData = async (id) => {
+        let res = await reinscripcionesDataHelper.obtenerUnData(id);
+        console.log(res);
+        if (res.success) {
+            setSolicitud(res.data);
+        } else {
+            Swal.fire(
+                'Error!',
+                'No se pudo obtner los datos, codigo: ' + res.code ,
+                'error'
+            )
+        }
     }
 
-    const NuevoStatus = (estatus) => {
-        if (estatus === 0){
-            solicitud.status = 1
-            console.log(solicitud.status + " aprobado")
-        } else {
-            solicitud.status = 0
-            console.log(solicitud.status + " pendiente")
-        }
+    const nuevoStatus = estatus => {
+        let copiaData = {...solicitud};
+        copiaData.estadoAlumno = !estatus;
+        reinscripcionesDataHelper.editarData(copiaData, copiaData._id);
+    }
+
+    const archivar = () => {
+        console.log("archivar");
+        let copiaData = {...solicitud};
+        copiaData.archivado = true;
+        reinscripcionesDataHelper.editarData(copiaData, copiaData._id);
     }
 
     return(
         <Fragment>
             <div>
                 <p className='titulo_solicitud' style={{textAlign:"center"}}>
-                    Solicitud de reinscripción
+                    Solicitud de inscripción
                 </p>
                 <div className='box_solicitud_1'>
                     <div className='row'>
@@ -68,10 +93,10 @@ const Solicitud = () => {
                                 <p className='texto_solicitud_3'>Telefono de Emergencia</p>
                                 <p className='texto_solicitud_4'>{solicitud.telefonoEmergencia} </p>
                             </div>
-                            <div className='cont_1'>
+                            {/* <div className='cont_1'>
                                 <p className='texto_solicitud_3'>Domicilio de la Empresa</p>
                                 <p className='texto_solicitud_4'>{solicitud.domicilioEmpresa} </p>
-                            </div>
+                            </div> */}
                         </div>
                         <div className='col s4'>
                             <div className='cont_1'>
@@ -94,10 +119,10 @@ const Solicitud = () => {
                                 <p className='texto_solicitud_3'>Nombre de la Madre</p>
                                 <p className='texto_solicitud_4'>{solicitud.nombreMadre} </p>
                             </div>
-                            <div className='cont_1'>
+                            {/* <div className='cont_1'>
                                 <p className='texto_solicitud_3'>Empresa donde trabajas</p>
                                 <p className='texto_solicitud_4'>{solicitud.nombreEmpresa} </p>
-                            </div>
+                            </div> */}
                             <div className='cont_1'>
                                 <p className='texto_solicitud_3'>Telefono de la Empresa</p>
                                 <p className='texto_solicitud_4'>{solicitud.telefonoEmpresa} </p>
@@ -107,14 +132,14 @@ const Solicitud = () => {
                             <div className='cont_1'>
                                 <p className='texto_solicitud_3 center' >Estado</p>
                                 <div style={{display:"flex", justifyContent:"center", alignItems:"center" }}>
-                                    {solicitud.status == 0 ? (
-                                        <button onClick={() => {NuevoStatus(solicitud.status)}} className='caja_status_1'>
+                                    {solicitud.estadoAlumno === false ? (
+                                        <button onClick={() => {nuevoStatus(solicitud.estadoAlumno)}} className='caja_status_1'>
                                             <p>
                                                 PENDIENTE
                                             </p>
                                         </button> 
                                     ) : (
-                                        <button onClick={() => {NuevoStatus(solicitud.status)}} className='caja_status_2' >
+                                        <button onClick={() => {nuevoStatus(solicitud.estadoAlumno)}} className='caja_status_2' >
                                             <p>
                                                 ATENDIDO
                                             </p>
@@ -123,30 +148,25 @@ const Solicitud = () => {
                                 </div>
                             </div>
                             <div style={{display:"flex", justifyContent:"center", flexDirection:"column", padding:"0px 15%"}}>
-                                <div className='cont_1 '>
+                                {/* <div className='cont_1 '>
                                     <p className='texto_solicitud_3'>Formato de pago</p>
                                     <p className='texto_solicitud_4'>{solicitud.formatoPago} </p>
-                                </div>
+                                </div> */}
                                 <div>
                                     <p className='texto_solicitud_3'>Archivos</p>
                                     <div style={{display:"flex", justifyContent:"space-between"}}>
                                         <button type="" className='btn_descarga'>
-                                            Descargar <br/>
-                                            PDF
-                                        </button>
-                                        <button type="" className='btn_descarga'>
-                                            Descargar <br/>
-                                            PNG
+                                            Descargar
                                         </button>
                                     </div>
                                 </div>
-                                <button type="" className='btn_archivar'>
+                                <button onClick={archivar} className='btn_archivar'>
                                     <img src={icon1} alt="" style={{}}/>
                                     Archivar
                                 </button>
-                                <a type="" className='btn_archivar' style={{backgroundColor:"#970D19"}}>
+                                {/* <a type="" className='btn_archivar' style={{backgroundColor:"#970D19"}}>
                                     Regresar
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>

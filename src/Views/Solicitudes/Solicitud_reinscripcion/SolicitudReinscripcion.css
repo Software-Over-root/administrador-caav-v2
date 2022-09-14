@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Caav';
+    src: url('./../../../Font/Caav_oficial-Regular.otf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Kaus';
+    src: url('./../../../Font/KaushanScript-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+body {
+    margin: 0;
+    font-family: 'Montserrat', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif, -apple-system, BlinkMacSystemFont,;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+
+/*  Textos */
+.titulo_solicitud{
+    font-size: 50px;
+    font-family: "Kaus";
+}
+.texto_solicitud{
+    font-size: 20px;
+    font-family: "Poppins";
+    color: #171B1E;
+    text-align: left;
+    margin: 5px 0px;
+}
+.texto_solicitud_2{
+    font-size: 16px;
+    margin: 0;
+    color: #00496C;
+    font-family: "Poppins";
+    text-align: left;
+    padding: 0 0.75rem;
+}
+/*  fin - Textos */
+
+/* Cajas */
+.caja_status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #970D19;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Poppins";
+}
+
+
+/* fin - Cajas */
+
+/* Box */
+.box_solicitud{
+    border-radius: 25px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 15px 0px 10px;
+    box-shadow: 0px 0px 18px -7px rgba(0,0,0,0.47);
+
+}
+/* fin - Box */
+
+/* Contenedor */
+.cont_solicitud{
+    padding: 0px 10%;
+    margin-bottom: 150px;
+}
+/* fin - Contenedor */
+
+.row{
+    margin: 0%;
+}
+
+/* botonse */
+.btn_solicitud{
+    margin: 0px 20px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #717579;
+    font-family: "Poppins";
+    border-radius: 15px;
+    background-color: #fff;
+    border: none;
+    transition: all 0.3s ease-in-out ;
+}
+.btn_solicitud:hover{
+    transition: all 0.3s ease-in-out ;
+    background-color: #970D19;
+    color: #fff;
+}
+.btn_solicitud:focus{
+    transition: all 0.3s ease-in-out ;
+    background-color: #970D19;
+    color: #fff;
+}
+/* botonse */
+
+/* Archivos */
+.flex_archivo{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box_archivos{
+    margin-top: 40px;
+    margin-bottom: 80px;
+    font-size: 20px;
+    font-family: "Montserrat";
+    color: #171B1E;
+    border: none;
+    background-color: #fff;
+}
+.box_archivos > img {
+    width: 100%;
+}
+/* fin - Archivos */

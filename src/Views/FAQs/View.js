@@ -38,8 +38,10 @@ const Preguntas = props => {
     const agregarPregunta = () => {
         let ventana = document.getElementById("ventana_editable_agregar");
         ventana.className = "ventana_editable col s3";
-        let vista = document.getElementById("vista_preguntas");
+        let vista = document.getElementById("vistas_generales");
         vista.className = "col s9";
+        let cerrar = document.getElementById("invisible_cerrar_agregar");
+        cerrar.className = "invisible_cerrar_activado";
 
         let ckedittor_contenedor = document.getElementById("ckedittor_contenedor");
         ReactDOM.render(
@@ -59,7 +61,7 @@ const Preguntas = props => {
 
 
     return (
-        <div id='vista_preguntas' className='col s12' style={{padding:"0"}}>
+        <div id='vistas_generales' className='col s12' style={{padding:"0"}}>
             <img src={img4} style={{width:"100%"}}/>
             
             <p className='titulo_1_nv' style={{ textAlign:"center", margin:"15px 0px" }}>

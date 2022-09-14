@@ -56,12 +56,14 @@ const Reinscripcion = props => {
     const actualizarVista = () => {
         let ventana = document.getElementById("ventana_editable_editar");
         ventana.className = "ventana_editable col s3";
-        let vista = document.getElementById("vista_reinscripcion");
+        let vista = document.getElementById("vistas_generales");
         vista.className = "col s9";
+        let cerrar = document.getElementById("invisible_cerrar");
+        cerrar.className = "invisible_cerrar_activado";
     }
 
     return (
-        <div id='vista_reinscripcion' className='col s12' style={{padding:"0"}}>
+        <div id='vistas_generales' className='col s12' style={{padding:"0"}}>
             <img src={img14} style={{width:"100%"}}/>
             <div className='center container contenedor_movil_chico_re'>
                 <p className='titulo_1_nv' style={{marginBottom:'0', marginTop:"15px"}}>

@@ -1,60 +1,99 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
-import "./SolicitudReinscripcion.css"
+// import icon1 from "../../Images/Icon/62.png";
+// import icon2 from "../../Images/Icon/63.png";
 
-import icon1 from "../../Images/Icon/62.png";
-import icon2 from "../../Images/Icon/63.png";
+import reinscripcionesDataHelper from '../../../Helpers/ReinscripcionesData';
+import SideNav from '../../../Components/SideNav';
 
 
-const SolicitudReinscripcion = () => {
+const Archivo = () => {
+
+    useEffect(() => {
+        obtenerData();
+    },[]);
+
+    const obtenerData = async () => {
+        let res = await reinscripcionesDataHelper.obtenerDataArchivo(true);
+        let cineData = [];
+        let animacionData = [];
+        let multimediaData = [];
+        let marketingData = [];
+        if (res.success) {
+            res.data.map(data => {
+                if (data.licenciatura === "cine") {
+                    cineData.push(data);
+                } else if (data.licenciatura === "animacion") {
+                    animacionData.push(data);
+                } else if (data.licenciatura === "multimedia") {
+                    multimediaData.push(data);
+                } else {
+                    marketingData.push(data);
+                }
+            });
+            setCine(cineData);
+            setEstadoActualCine(cineData);
+
+            setAnimacion(animacionData);
+            setEstadoActualAnimacion(animacionData);
+
+            setMultimedia(multimediaData);
+            setEstadoActualMultimedia(multimediaData);
+
+            setMarketing(marketingData);
+            setEstadoActualMarketing(marketingData);
+        } else {
+            console.log("else");
+        }
+    }
 
     const [cine, setCine] = useState([
         {
             nombre:"Hugo Eduardo Guerrero García",
             fecha:"3 DE MAYO 2022",
-            correo:"hugo@gmail.com",
+            email:"hugo@gmail.com",
             cuatrimestre:"Octavo",
             status: 0
         },
         {
             nombre:"Hugo Eduardo Guerrero García",
             fecha:"3 DE MAYO 2022",
-            correo:"hugo@gmail.com",
+            email:"hugo@gmail.com",
             cuatrimestre:"Octavo",
             status: 1
         },
         {
             nombre:"Hugo Eduardo Guerrero García",
             fecha:"3 DE MAYO 2022",
-            correo:"hugo@gmail.com",
+            email:"hugo@gmail.com",
             cuatrimestre:"Octavo",
             status: 1
         },
         {
             nombre:"Hugo Eduardo Guerrero García",
             fecha:"3 DE MAYO 2022",
-            correo:"hugo@gmail.com",
+            email:"hugo@gmail.com",
             cuatrimestre:"Octavo",
             status: 0
         },
         {
             nombre:"Hugo Eduardo Guerrero García",
             fecha:"3 DE MAYO 2022",
-            correo:"hugo@gmail.com",
+            email:"hugo@gmail.com",
             cuatrimestre:"Octavo",
             status: 0
         },
         {
             nombre:"Hugo Eduardo Guerrero García",
             fecha:"3 DE MAYO 2022",
-            correo:"hugo@gmail.com",
+            email:"hugo@gmail.com",
             cuatrimestre:"Octavo",
             status: 0
         },
         {
             nombre:"Hugo Eduardo Guerrero García",
             fecha:"3 DE MAYO 2022",
-            correo:"hugo@gmail.com",
+            email:"hugo@gmail.com",
             cuatrimestre:"Octavo",
             status: 1
         }
@@ -63,35 +102,35 @@ const SolicitudReinscripcion = () => {
         {
             nombre:"Oscar Isaac Lopez Rojas",
             fecha:"8 DE JULIO 2022",
-            correo:"oscar@gmail.com",
+            email:"oscar@gmail.com",
             cuatrimestre:"Septimo",
             status: 0
         },
         {
             nombre:"Oscar Isaac Lopez Rojas",
             fecha:"8 DE JULIO 2022",
-            correo:"oscar@gmail.com",
+            email:"oscar@gmail.com",
             cuatrimestre:"Septimo",
             status: 1
         },
         {
             nombre:"Oscar Isaac Lopez Rojas",
             fecha:"8 DE JULIO 2022",
-            correo:"oscar@gmail.com",
+            email:"oscar@gmail.com",
             cuatrimestre:"Septimo",
             status: 0
         },
         {
             nombre:"Oscar Isaac Lopez Rojas",
             fecha:"8 DE JULIO 2022",
-            correo:"oscar@gmail.com",
+            email:"oscar@gmail.com",
             cuatrimestre:"Septimo",
             status: 1
         },
         {
             nombre:"Oscar Isaac Lopez Rojas",
             fecha:"8 DE JULIO 2022",
-            correo:"oscar@gmail.com",
+            email:"oscar@gmail.com",
             cuatrimestre:"Septimo",
             status: 0
         }
@@ -100,56 +139,56 @@ const SolicitudReinscripcion = () => {
         {
             nombre:"Edwin Ivan Rubio Navarro",
             fecha:"4 DE ENERO 2022",
-            correo:"edwin@gmail.com",
+            email:"edwin@gmail.com",
             cuatrimestre:"Tercero",
             status: 0
         },
         {
             nombre:"Edwin Ivan Rubio Navarro",
             fecha:"4 DE ENERO 2022",
-            correo:"edwin@gmail.com",
+            email:"edwin@gmail.com",
             cuatrimestre:"Tercero",
             status: 0
         } ,
         {
             nombre:"Edwin Ivan Rubio Navarro",
             fecha:"4 DE ENERO 2022",
-            correo:"edwin@gmail.com",
+            email:"edwin@gmail.com",
             cuatrimestre:"Tercero",
             status: 0
         },
         {
             nombre:"Edwin Ivan Rubio Navarro",
             fecha:"4 DE ENERO 2022",
-            correo:"edwin@gmail.com",
+            email:"edwin@gmail.com",
             cuatrimestre:"Tercero",
             status: 1
         },
         {
             nombre:"Edwin Ivan Rubio Navarro",
             fecha:"4 DE ENERO 2022",
-            correo:"edwin@gmail.com",
+            email:"edwin@gmail.com",
             cuatrimestre:"Tercero",
             status: 1
         },
         {
             nombre:"Edwin Ivan Rubio Navarro",
             fecha:"4 DE ENERO 2022",
-            correo:"edwin@gmail.com",
+            email:"edwin@gmail.com",
             cuatrimestre:"Tercero",
             status: 1
         },
         {
             nombre:"Edwin Ivan Rubio Navarro",
             fecha:"4 DE ENERO 2022",
-            correo:"edwin@gmail.com",
+            email:"edwin@gmail.com",
             cuatrimestre:"Tercero",
             status: 1
         },
         {
             nombre:"Edwin Ivan Rubio Navarro",
             fecha:"4 DE ENERO 2022",
-            correo:"edwin@gmail.com",
+            email:"edwin@gmail.com",
             cuatrimestre:"Tercero",
             status: 0
         }
@@ -158,56 +197,56 @@ const SolicitudReinscripcion = () => {
         {
             nombre:"Mauricio Javier Ramirez Rodriguez",
             fecha:"26 DE AGOSTO 2022",
-            correo:"mauricio@gmail.com",
+            email:"mauricio@gmail.com",
             cuatrimestre:"Primero",
             status: 1
         },
         {
             nombre:"Mauricio Javier Ramirez Rodriguez",
             fecha:"26 DE AGOSTO 2022",
-            correo:"mauricio@gmail.com",
+            email:"mauricio@gmail.com",
             cuatrimestre:"Primero",
             status: 1
         },
         {
             nombre:"Mauricio Javier Ramirez Rodriguez",
             fecha:"26 DE AGOSTO 2022",
-            correo:"mauricio@gmail.com",
+            email:"mauricio@gmail.com",
             cuatrimestre:"Primero",
             status: 0
         },
         {
             nombre:"Mauricio Javier Ramirez Rodriguez",
             fecha:"26 DE AGOSTO 2022",
-            correo:"mauricio@gmail.com",
+            email:"mauricio@gmail.com",
             cuatrimestre:"Primero",
             status: 1
         },
         {
             nombre:"Mauricio Javier Ramirez Rodriguez",
             fecha:"26 DE AGOSTO 2022",
-            correo:"mauricio@gmail.com",
+            email:"mauricio@gmail.com",
             cuatrimestre:"Primero",
             status: 1
         },
         {
             nombre:"Mauricio Javier Ramirez Rodriguez",
             fecha:"26 DE AGOSTO 2022",
-            correo:"mauricio@gmail.com",
+            email:"mauricio@gmail.com",
             cuatrimestre:"Primero",
             status: 1
         },
         {
             nombre:"Mauricio Javier Ramirez Rodriguez",
             fecha:"26 DE AGOSTO 2022",
-            correo:"mauricio@gmail.com",
+            email:"mauricio@gmail.com",
             cuatrimestre:"Primero",
             status: 1
         },
         {
             nombre:"Mauricio Javier Ramirez Rodriguez",
             fecha:"26 DE AGOSTO 2022",
-            correo:"mauricio@gmail.com",
+            email:"mauricio@gmail.com",
             cuatrimestre:"Primero",
             status: 0
         } 
@@ -220,24 +259,21 @@ const SolicitudReinscripcion = () => {
 
     const SolicitudesCine = solicitud => {
         if (solicitud == 0) {
-            let filtro = cine.filter(dato => dato.status === 0);
-            console.log(filtro);
+            let filtro = cine.filter(dato => dato.estadoAlumno === false);
             setEstadoActualCine(filtro);
         } if (solicitud == 1) {
-            let filtro = cine.filter(dato => dato.status === 1);
-            console.log(filtro);
+            let filtro = cine.filter(dato => dato.estadoAlumno === true);
             setEstadoActualCine(filtro);
         } if (solicitud == 2) {
             setEstadoActualCine(cine)
-            console.log(estadoActualCine);
         }
     }
     const SolicitudesAnimacion = solicitud => {
         if (solicitud == 0) {
-            let filtro = animacion.filter(dato => dato.status === 0);
+            let filtro = animacion.filter(dato => dato.estadoAlumno === false);
             setEstadoActualAnimacion(filtro);
         } if (solicitud == 1) {
-            let filtro = animacion.filter(dato => dato.status === 1);
+            let filtro = animacion.filter(dato => dato.estadoAlumno === true);
             setEstadoActualAnimacion(filtro);
         } if (solicitud == 2) {
             setEstadoActualAnimacion(animacion)
@@ -245,10 +281,10 @@ const SolicitudReinscripcion = () => {
     }
     const SolicitudesMultimedia = solicitud => {
         if (solicitud == 0) {
-            let filtro = multimedia.filter(dato => dato.status === 0);
+            let filtro = multimedia.filter(dato => dato.estadoAlumno === false);
             setEstadoActualMultimedia(filtro);
         } if (solicitud == 1) {
-            let filtro = multimedia.filter(dato => dato.status === 1);
+            let filtro = multimedia.filter(dato => dato.estadoAlumno === true);
             setEstadoActualMultimedia(filtro);
         } if (solicitud == 2) {
             setEstadoActualMultimedia(multimedia)
@@ -256,10 +292,10 @@ const SolicitudReinscripcion = () => {
     }
     const SolicitudesMarketing = solicitud => {
         if (solicitud == 0) {
-            let filtro = marketing.filter(dato => dato.status === 0);
+            let filtro = marketing.filter(dato => dato.estadoAlumno === false);
             setEstadoActualMarketing(filtro);
         } if (solicitud == 1) {
-            let filtro = marketing.filter(dato => dato.status === 1);
+            let filtro = marketing.filter(dato => dato.estadoAlumno === true);
             setEstadoActualMarketing(filtro);
         } if (solicitud == 2) {
             setEstadoActualMarketing(marketing)
@@ -268,10 +304,11 @@ const SolicitudReinscripcion = () => {
     
     return(
         <Fragment>
+            <SideNav />
             <div style={{textAlign:"center"}}>
-                <p className='titulo_solicitud'>
-                    Solicitud de reinscripción
-                </p>
+            <p className='titulo_solicitud' style={{textAlign:"center"}}>
+                Sep-Dic 2022
+            </p>
 
                 <div>
                     <p className='titulo_solicitud'>
@@ -330,7 +367,7 @@ const SolicitudReinscripcion = () => {
                                                 </div>
                                                 <div className='col s3'>
                                                     <p className='texto_solicitud'>
-                                                        {dato.correo}
+                                                        {dato.email}
                                                     </p>
                                                 </div>
                                                 <div className='col s3'>
@@ -345,19 +382,19 @@ const SolicitudReinscripcion = () => {
                                                 <div className='col s4 offset-s4'>
                                                     <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                                                         {/* <img src={icon1} alt="" /> */}
-                                                        <img src={icon2} alt="" />
+                                                        {/* <img src={icon2} alt="" /> */}
                                                     </div>
                                                 </div>
                                                 <div className='col s4'>
-                                                    {dato.status == 0 ? (
-                                                        <a href="/" className='caja_status'>
+                                                    {dato.estadoAlumno === false ? (
+                                                        <a target="blanck" href={`/solicitud/${dato._id}`} className='caja_status'>
                                                             <p>
                                                                 PENDIENTE
                                                             </p>
                                                         </a>
 
                                                     ) : (
-                                                        <a href="/" className='caja_status' style={{backgroundColor:"#00496C"}}>
+                                                        <a target="blanck" href={`/solicitud/${dato._id}`} className='caja_status' style={{backgroundColor:"#00496C"}}>
                                                             <p>
                                                                 ATENDIDO
                                                             </p>
@@ -432,7 +469,7 @@ const SolicitudReinscripcion = () => {
                                                 </div>
                                                 <div className='col s3'>
                                                     <p className='texto_solicitud'>
-                                                        {dato.correo}
+                                                        {dato.email}
                                                     </p>
                                                 </div>
                                                 <div className='col s3'>
@@ -447,19 +484,19 @@ const SolicitudReinscripcion = () => {
                                                 <div className='col s4 offset-s4'>
                                                     <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                                                         {/* <img src={icon1} alt="" /> */}
-                                                        <img src={icon2} alt="" />
+                                                        {/* <img src={icon2} alt="" /> */}
                                                     </div>
                                                 </div>
                                                 <div className='col s4'>
-                                                    {dato.status == 0 ? (
-                                                        <a href="/" className='caja_status'>
+                                                    {dato.estadoAlumno === false ? (
+                                                        <a target="blanck" href={`/solicitud/${dato._id}`} className='caja_status'>
                                                             <p>
                                                                 PENDIENTE
                                                             </p>
                                                         </a>
 
                                                     ) : (
-                                                        <a href="/" className='caja_status' style={{backgroundColor:"#00496C"}}>
+                                                        <a target="blanck" href={`/solicitud/${dato._id}`} className='caja_status' style={{backgroundColor:"#00496C"}}>
                                                             <p>
                                                                 ATENDIDO
                                                             </p>
@@ -535,7 +572,7 @@ const SolicitudReinscripcion = () => {
                                                 </div>
                                                 <div className='col s3'>
                                                     <p className='texto_solicitud'>
-                                                        {dato.correo}
+                                                        {dato.email}
                                                     </p>
                                                 </div>
                                                 <div className='col s3'>
@@ -550,19 +587,19 @@ const SolicitudReinscripcion = () => {
                                                 <div className='col s4 offset-s4'>
                                                     <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                                                         {/* <img src={icon1} alt="" /> */}
-                                                        <img src={icon2} alt="" />
+                                                        {/* <img src={icon2} alt="" /> */}
                                                     </div>
                                                 </div>
                                                 <div className='col s4'>
-                                                    {dato.status == 0 ? (
-                                                        <a href="/" className='caja_status'>
+                                                    {dato.estadoAlumno === false ? (
+                                                        <a target="blanck" href={`/solicitud/${dato._id}`} className='caja_status'>
                                                             <p>
                                                                 PENDIENTE
                                                             </p>
                                                         </a>
 
                                                     ) : (
-                                                        <a href="/" className='caja_status' style={{backgroundColor:"#00496C"}}>
+                                                        <a target="blanck" href={`/solicitud/${dato._id}`} className='caja_status' style={{backgroundColor:"#00496C"}}>
                                                             <p>
                                                                 ATENDIDO
                                                             </p>
@@ -638,7 +675,7 @@ const SolicitudReinscripcion = () => {
                                                 </div>
                                                 <div className='col s3'>
                                                     <p className='texto_solicitud'>
-                                                        {dato.correo}
+                                                        {dato.email}
                                                     </p>
                                                 </div>
                                                 <div className='col s3'>
@@ -653,19 +690,19 @@ const SolicitudReinscripcion = () => {
                                                 <div className='col s4 offset-s4'>
                                                     <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                                                         {/* <img src={icon1} alt="" /> */}
-                                                        <img src={icon2} alt="" />
+                                                        {/* <img src={icon2} alt="" /> */}
                                                     </div>
                                                 </div>
                                                 <div className='col s4'>
-                                                    {dato.status == 0 ? (
-                                                        <a href="/" className='caja_status'>
+                                                    {dato.estadoAlumno === false ? (
+                                                        <a target="blanck" href={`/solicitud/${dato._id}`} className='caja_status'>
                                                             <p>
                                                                 PENDIENTE
                                                             </p>
                                                         </a>
 
                                                     ) : (
-                                                        <a href="/" className='caja_status' style={{backgroundColor:"#00496C"}}>
+                                                        <a target="blanck" href={`/solicitud/${dato._id}`} className='caja_status' style={{backgroundColor:"#00496C"}}>
                                                             <p>
                                                                 ATENDIDO
                                                             </p>
@@ -689,4 +726,4 @@ const SolicitudReinscripcion = () => {
     )
 }
 
-export default SolicitudReinscripcion;
+export default Archivo;

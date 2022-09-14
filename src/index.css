@@ -7,6 +7,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button{
+  cursor: pointer;
+}
+
+.login_input{
+  border: solid 1px #a3a3a3 !important;
+  border-radius: 25px !important;
+  padding: 0 20px !important;
+  width: calc(100% - 40px) !important;
+}
+
 .componente_editable_padre{
   background: #ffffff00;
   border: 5px solid #970D19 !important;
@@ -47,6 +58,26 @@ body {
   border-radius: 25px;
   padding: 10px 20px;
 }
+.sombra::-webkit-scrollbar-thumb{
+  background: #7c7c7c;
+  border-radius: 10px;
+}
+.sombra::-webkit-scrollbar{
+  width: 9px;
+  border-radius: 10px;
+  /* background: #d1d1d1; */
+}
+.sombra::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 20px; 
+}
+
+.sombra::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 20px;
+}
+
+
 @keyframes slide_1 {
   0% {
     left: -900px;
@@ -61,6 +92,7 @@ body {
   display: none;
   position: relative;
 }
+
 .ventana_editable{
   background: #efefef;
   animation: slide_1 0.5s linear;
@@ -69,9 +101,27 @@ body {
   top: 0px;
   margin-left: -8px !important;
   background: #efefef;
+  background-image: url(./Images/fondo_admin_1.png);
+  background-size: 100%;
   position: fixed;
+  z-index: 11;
   height: 100vh;
   animation: slide_1 0.5s linear;
+}
+
+.invisible_cerrar_desactivado{
+  width: 100%;
+  cursor: pointer;
+  top: 0;
+}
+.invisible_cerrar_activado{
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: #91919130;
+  position: fixed;
+  cursor: pointer;
+  top: 0;
 }
 /* fin - efecto lateral editar */
 

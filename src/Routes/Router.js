@@ -15,21 +15,31 @@ import Admision from '../Views/Admision/Aspirantes';
 // import Becas from '../Views/Beca/Becas';
 import FAQs from '../Views/FAQs/Preguntas';
 
+// import Blogs from '../Views/Blogs/Blog';
+
 
 // import LicenciaturaCine from '../Views/Licenciaturas/Cine/Cine';
 // import LicenciaturaAnimacion from '../Views/Licenciaturas/Animacion/Animacion';
 // import LicenciaturaMarketing from '../Views/Licenciaturas/Marketing/Marketing';
 // import LicenciaturaMultimedia from '../Views/Licenciaturas/Multimedia/Multimedia';
 
-import SolicitudReinscripcion from '../Views/Solicitud_reinscripcion/SolicitudReinscripcion';
-import Solicitud from '../Views/Solicitud/Solicitud';
-import ArchivosReinscripcion from '../Views/ArchivosReinscripcion/ArchivosReinscripcion';
-import Archivos from '../Views/Archivos/Archivos';
-import Archivo from '../Views/Archivo/Archivo';
+import SolicitudReinscripcion from '../Views/Solicitudes/Solicitud_reinscripcion/SolicitudReinscripcion';
+import Solicitud from '../Views/Solicitudes/Solicitud/Solicitud';
+import SolicitudInscripcion from '../Views/Solicitudes/Solicitud_inscripcion/SolicitudReinscripcion';
+import SolicitudIns from '../Views/Solicitudes/Solicitud_ins/Solicitud';
+
+import ArchivosReinscripcion from '../Views/AllArchivos/ArchivosReinscripcion/ArchivosReinscripcion';
+import ArchivosInscripcion from '../Views/AllArchivos/ArchivosInscripcion/ArchivosReinscripcion';
+import Archivos from '../Views/AllArchivos/Archivos/Archivos';
+import Archivo from '../Views/AllArchivos/Archivo/Archivo';
 
 import Estudiantes from '../Views/Esrudiantes/Estudiantes';
 import Horario from '../Views/Horarios/Horario';
 import AgregarPdf from '../Views/AgregarPdf/AgregarPdf';
+
+import Administradores from '../Views/Administradores/Administradores';
+import EditarAdministrador from '../Views/Administradores/EditarAdministrador';
+import AgregarAdministrador from '../Views/Administradores/AgregarAdmin';
 
 const RouterFunction = () => {
     return (
@@ -48,14 +58,25 @@ const RouterFunction = () => {
                 <Route path="/proceso-admision" element={<Admision />} />
 
                 <Route path="/solicitud-reinscripciones" element={<SolicitudReinscripcion />} />
-                <Route path="/solicitud" element={<Solicitud />} />
+                <Route path="/solicitud/:id" element={<Solicitud />} />
+                <Route path="/solicitud-inscripciones" element={<SolicitudInscripcion />} />
+                <Route path="/solicitud-inscripcion/:id" element={<SolicitudIns />} />
+
                 <Route path="/archivos-reinscripciones" element={<ArchivosReinscripcion />} />
-                <Route path="/archivos" element={<Archivos />} />
+                <Route path="/archivos-inscripciones" element={<ArchivosInscripcion />} />
+                <Route path="/archivos/:licenciatura" element={<Archivos />} />
                 <Route path="/archivo" element={<Archivo />} />
 
                 <Route path="/estudiantes" element={<Estudiantes />} />
                 <Route path="/horario" element={<Horario />} />
                 <Route path="/agregar-pdf" element={<AgregarPdf />} />
+
+                <Route path="/administradores" element={<Administradores />} />
+                <Route path="/administrador/:id" element={<EditarAdministrador />} />
+                <Route path="/administrador-agregar" element={<AgregarAdministrador />} />
+
+                {/* <Route path="/blogs" element={<Blogs />} /> */}
+
 
                 {/* <Route path="/licenciaturas/cine" element={<LicenciaturaCine />} /> */}
                 {/* <Route path="/licenciaturas/animacion" element={<LicenciaturaAnimacion />} /> */}

@@ -1,8 +1,15 @@
 import React from 'react';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const FormularioAgregar = props => {
+    const cerrar = e => {
+        let ventana = document.getElementById("ventana_editable_agregar");
+        ventana.className = "ventana_editable_desactivada";
+        let vista = document.getElementById("vistas_generales");
+        vista.className = "col s12";
+        let cerrar = document.getElementById("invisible_cerrar_agregar");
+        cerrar.className = "invisible_cerrar_desactivado";
+    }
+
     return (
         <div className="ventana_editable_desactivada" id='ventana_editable_agregar'>
             <div className='col s3'>
@@ -13,6 +20,7 @@ const FormularioAgregar = props => {
                     {props.children}
                 </div>
             </div>
+            <div id='invisible_cerrar_agregar' onClick={cerrar} className='invisible_cerrar_desactivado' />
         </div>
     );
 };

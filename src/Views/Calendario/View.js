@@ -37,24 +37,28 @@ const Calendario = props => {
 
     const [eventos, setEventos] = useState([{}]);
 
+    useEffect(() => {
+        obtenerEventos();
+    }, [props]);
+    
     const agregarEvento = () => {
         let ventana = document.getElementById("ventana_editable_agregar");
         ventana.className = "ventana_editable col s3";
-        let vista = document.getElementById("vista_calendario");
+        let vista = document.getElementById("vistas_generales");
         vista.className = "col s9";
+        let cerrar = document.getElementById("invisible_cerrar_agregar");
+        cerrar.className = "invisible_cerrar_activado";
     }
 
     const actualizarEvento = evento => {
         let ventana = document.getElementById("ventana_editable_editar");
         ventana.className = "ventana_editable col s3";
-        let vista = document.getElementById("vista_calendario");
+        let vista = document.getElementById("vistas_generales");
         vista.className = "col s9";
+        let cerrar = document.getElementById("invisible_cerrar");
+        cerrar.className = "invisible_cerrar_activado";
         setEditar(evento);
     }
-
-    useEffect(() => {
-        obtenerEventos();
-    }, [props]);
 
     const obtenerEventos = async () => {
         let res = await calendarioHelper.obtenerEventos();
@@ -152,7 +156,7 @@ const Calendario = props => {
     }
 
     return (
-        <div id='vista_calendario' className='col s12' style={{padding:"0"}}>
+        <div id='vistas_generales' className='col s12' style={{padding:"0"}}>
             <img src={img1} alt="" style={{width:"100%"}} />
             <div className='container'>
                 <div className='center'>

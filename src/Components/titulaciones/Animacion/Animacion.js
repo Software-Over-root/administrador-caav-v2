@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import "./Animacion.css";
 
@@ -9,7 +9,7 @@ const Animacion = props => {
     }
 
     return(
-        <Fragment>
+        <div className='componente_editable_padre'>
             <div className='fondo_titulacion' style={{position:"relative", zIndex:"-9"}}>
                 <div className='container contenedor_xch center' style={{paddingBottom:"1px", paddingTop:"1px"}}>
                     <p className='titulo_1_nv' style={{color:"#752884", marginBottom:"0px"}}>
@@ -52,7 +52,7 @@ const Animacion = props => {
                 </p>
                 <div dangerouslySetInnerHTML={createMarkup(props.titulacion.presentacion_final)}></div>
             </div>
-        </Fragment>
+        </div>
     );
 }
 

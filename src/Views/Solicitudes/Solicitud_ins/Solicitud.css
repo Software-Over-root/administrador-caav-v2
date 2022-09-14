@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Caav';
+    src: url('./../../../Font/Caav_oficial-Regular.otf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Kaus';
+    src: url('./../../../Font/KaushanScript-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+body {
+    margin: 0;
+    font-family: 'Montserrat', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif, -apple-system, BlinkMacSystemFont,;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+
+/*  Box */
+.box_solicitud_1{
+    border-radius: 25px;
+    box-shadow: 0px 0px 18px -7px rgba(0,0,0,0.47);
+    margin: 0px 10%;
+    padding: 20px 3%;
+}
+.cont_1{
+    margin: 30px 0px;
+}
+.caja_status_1{
+    background-color: #970D19;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Montserrat";
+    border-radius: 20px;
+    padding: 0px 10px;
+    margin: 10px 0px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+}
+.caja_status_1:hover{
+    transition: all 0.5s ease-in-out;
+    border:solid 1px #970D19;
+    background-color: white;
+    color: #970D19;
+    border-radius: 10px;
+}
+.caja_status_1:focus{
+    transition: all 0.5s ease-in-out;
+    border:solid 1px #970D19;
+    background-color: white;
+    color: #970D19;
+    border-radius: 10px;
+}
+
+.caja_status_2{
+    background-color: #00496C;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Montserrat";
+    border-radius: 20px;
+    padding: 0px 10px;
+    margin: 10px 0px;
+    border: none;
+    transition: all 0.5s ease-in-out;
+
+}
+.caja_status_2:hover{
+    transition: all 0.5s ease-in-out;
+    border:solid 1px #00496C;
+    background-color: white;
+    color: #00496C;
+    border-radius: 10px;
+}
+/*  fin - Box */
+
+/* Botones */
+.btn_descarga{
+    background-color: #970D19;
+    color: white;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Montserrat";
+    height: 56px;
+    width: 102px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    margin: 15px 0px;
+}
+.btn_descarga:hover{
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    color: #970D19;
+    border-radius: 20px;
+    border: solid 1px #970D19;
+}
+.btn_archivar{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0px 15%;
+    height: 48px;
+    border: none;
+    background-color: #00496C;
+    margin: 40px 0 0;
+    color: #fff;
+    font-size: 19px;
+    font-family: "Montserrat";
+    font-weight: bold;
+    border-radius: 25px;
+}
+/* fin - Botones */
+
+/* Textos */
+.texto_solicitud_3{
+    font-size: 16px;
+    font-family: "Montserrat";
+    color: #00496C;
+    margin: 0%;
+    font-weight: bold;
+}
+.texto_solicitud_4{
+    font-size: 20px;
+    font-family: "Montserrat";
+    color: #171B1E;
+    margin: 0px;
+    font-weight: bold;
+}
+/* fin - Textos */

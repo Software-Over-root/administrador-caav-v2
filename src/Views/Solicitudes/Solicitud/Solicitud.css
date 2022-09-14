@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Caav';
-    src: url('./../../Font/Caav_oficial-Regular.otf') format('truetype');
+    src: url('./../../../Font/Caav_oficial-Regular.otf') format('truetype');
     font-style: normal;
     font-weight: normal;
 }
 @font-face {
     font-family: 'Kaus';
-    src: url('./../../Font/KaushanScript-Regular.ttf') format('truetype');
+    src: url('./../../../Font/KaushanScript-Regular.ttf') format('truetype');
     font-style: normal;
     font-weight: normal;
 }

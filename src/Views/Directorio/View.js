@@ -42,20 +42,24 @@ const Directorio = props => {
     const agregarPersona = () => {
         let ventana = document.getElementById("ventana_editable_agregar");
         ventana.className = "ventana_editable col s3";
-        let vista = document.getElementById("vista_directorio");
+        let vista = document.getElementById("vistas_generales");
         vista.className = "col s9";
+        let cerrar = document.getElementById("invisible_cerrar_agregar");
+        cerrar.className = "invisible_cerrar_activado";
     }
 
     const actualizarPregunta = persona => {
         let ventana = document.getElementById("ventana_editable_editar");
         ventana.className = "ventana_editable col s3";
-        let vista = document.getElementById("vista_directorio");
+        let vista = document.getElementById("vistas_generales");
         vista.className = "col s9";
+        let cerrar = document.getElementById("invisible_cerrar");
+        cerrar.className = "invisible_cerrar_activado";
         setEditar(persona);
     }
 
     return (
-        <div id='vista_directorio' className='col s12' style={{padding:"0"}}>
+        <div id='vistas_generales' className='col s12' style={{padding:"0"}}>
             <img src={img1} style={{width:"100%"}}/>
 
             <div className='container center'>

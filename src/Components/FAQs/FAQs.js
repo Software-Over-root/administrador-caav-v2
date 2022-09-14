@@ -23,7 +23,9 @@ const FAQs = porps => {
     const actualizarPregunta = pregunta => {
         let ventana = document.getElementById("ventana_editable_editar");
         ventana.className = "ventana_editable col s3";
-        let vista = document.getElementById("vista_preguntas");
+        let vista = document.getElementById("vistas_generales");
+        let cerrar = document.getElementById("invisible_cerrar");
+        cerrar.className = "invisible_cerrar_activado";
         vista.className = "col s9";
         setEditar(pregunta);
 

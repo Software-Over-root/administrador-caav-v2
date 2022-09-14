@@ -19,19 +19,23 @@ import imgTitulacion from '../../Images/escritorio/Titulacion/1.png';
 
 const Titulacion = props => {
     const { setEditar, editar } = useAuth();
-
     const [titulaciones, setTitulaciones] = useState([{}]);
+    const [titulacionInfo, setTitulacionInfo] = useState({});
 
     useEffect(() => {
-        obtenerTitulaciones();
-    },[]);
+        if (titulaciones.length === 1) {
+            obtenerTitulaciones();
+        }
+        setEditar({
+            ...editar,
+            ...titulacionInfo
+        })
+    },[titulacionInfo]);
 
     const obtenerTitulaciones = async () => {
         let res = await titulacionHelper.obtenerTitulaciones();
-        console.log(res);
         if (res.success) {
             setTitulaciones(res.data);
-            // setFlag(true);
         } else {
             Swal.fire(
                 'Error!',
@@ -45,12 +49,14 @@ const Titulacion = props => {
         // console.log("buscar licenciatura");
         if (licenciatura === 0) {
             //animacion
+            setEditar(titulaciones[3]);
             ReactDOM.render(
                 <Animacion titulacion={titulaciones[3]} />,
                 document.getElementById('contenedor_licenciatura')
             );
         } else if (licenciatura === 1) {
             //cine
+            setEditar(titulaciones[0]);
             ReactDOM.render(
                 <Cine titulacion={titulaciones[0]} />,
                 document.getElementById('contenedor_licenciatura')
@@ -58,12 +64,14 @@ const Titulacion = props => {
             
         } else if (licenciatura === 2) {
             //publicidad
+            setEditar(titulaciones[2]);
             ReactDOM.render(
                 <Publicidad titulacion={titulaciones[2]} />,
                 document.getElementById('contenedor_licenciatura')
             );
         } else if (licenciatura === 3) {
             //multimedia
+            setEditar(titulaciones[1]);
             ReactDOM.render(
                 <Multimedia titulacion={titulaciones[1]} />,
                 document.getElementById('contenedor_licenciatura')
@@ -75,141 +83,108 @@ const Titulacion = props => {
         }, 500);
     }
 
-    const actualizarTitulacion = persona => {
+    const actualizarTitulacion = () => {
         let ventana = document.getElementById("ventana_editable_editar");
         ventana.className = "ventana_editable col s3";
-        let vista = document.getElementById("vista_titulacion");
+        let vista = document.getElementById("vistas_generales");
         vista.className = "col s9";
+        let cerrar = document.getElementById("invisible_cerrar");
+        cerrar.className = "invisible_cerrar_activado";
 
         ReactDOM.render(
             <Fragment>
                 <p>Descripcion</p>
                 <CKEditor
-                    // data={profesor.materias}
+                    data={editar.descripcion}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
-                        setEditar({
-                            ...editar,
-                            materias: data
+                        setTitulacionInfo({
+                            ...titulacionInfo,
+                            descripcion: data
                         })
                     } }
                 />
-            </Fragment>,
-            document.getElementById("descripcion_titulacion")
-        );
-
-        ReactDOM.render(
-            <Fragment>
                 <p>7° cuatrimestre</p>
                 <CKEditor
-                    // data={profesor.materias}
+                    data={editar.cuatrimestre7}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
-                        setEditar({
-                            ...editar,
-                            materias: data
+                        setTitulacionInfo({
+                            ...titulacionInfo,
+                            cuatrimestre7: data
                         })
                     } }
                 />
-            </Fragment>,
-            document.getElementById("7_cuatrimestre")
-        );
-
-        ReactDOM.render(
-            <Fragment>
                 <p>8° cuatrimestre</p>
                 <CKEditor
-                    // data={profesor.materias}
+                    data={editar.cuatrimestre8}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
-                        setEditar({
-                            ...editar,
-                            materias: data
+                        setTitulacionInfo({
+                            ...titulacionInfo,
+                            cuatrimestre8: data
                         })
                     } }
                 />
-            </Fragment>,
-            document.getElementById("8_cuatrimestre")
-        );
-
-        ReactDOM.render(
-            <Fragment>
                 <p>9° cuatrimestre</p>
                 <CKEditor
-                    // data={profesor.materias}
+                    data={editar.cuatrimestre9}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
-                        setEditar({
-                            ...editar,
-                            materias: data
+                        setTitulacionInfo({
+                            ...titulacionInfo,
+                            cuatrimestre9: data
                         })
                     } }
                 />
-            </Fragment>,
-            document.getElementById("9_cuatrimestre")
-        );
-
-        ReactDOM.render(
-            <Fragment>
                 <p>Carpeta de investigacion</p>
                 <CKEditor
-                    // data={profesor.materias}
+                    data={editar.carpeta_investigacion}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
-                        setEditar({
-                            ...editar,
-                            materias: data
+                        setTitulacionInfo({
+                            ...titulacionInfo,
+                            carpeta_investigacion: data
                         })
                     } }
                 />
-            </Fragment>,
-            document.getElementById("carpeta_investigacion")
-        );
-
-        ReactDOM.render(
-            <Fragment>
-                <p>Carpeta de produccion</p>
-                <CKEditor
-                    // data={profesor.materias}
-                    editor={ ClassicEditor }
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        setEditar({
-                            ...editar,
-                            materias: data
-                        })
-                    } }
-                />
-            </Fragment>,
-            document.getElementById("carpeta_produccion")
-        );
-
-        ReactDOM.render(
-            <Fragment>
                 <p>Presentacion final</p>
                 <CKEditor
-                    // data={profesor.materias}
+                    data={editar.presentacion_final}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
-                        setEditar({
-                            ...editar,
-                            materias: data
+                        setTitulacionInfo({
+                            ...titulacionInfo,
+                            presentacion_final: data
+                        })
+                    } }
+                />
+                <p>Carpeta de produccion</p>
+                <CKEditor
+                    data={editar.carpeta_produccion}
+                    editor={ ClassicEditor }
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+                        setTitulacionInfo({
+                            ...titulacionInfo,
+                            carpeta_produccion: data
                         })
                     } }
                 />
             </Fragment>,
-            document.getElementById("presentacion_final")
+            document.getElementById("formularios")
         );
     }
 
     return (
-        <div id='vista_titulacion' className='col s12' style={{padding:"0"}}>
+        <div id='vistas_generales' className='col s12' style={{padding:"0"}}>
+        {/* <div id='vista_titulacion' className='col s12' style={{padding:"0"}}> */}
             <img src={imgTitulacion} style={{width:"100%"}} alt="Titulacion CAAV" />           
             
             <div className='container contenedor_xch center'>
@@ -305,7 +280,7 @@ const Titulacion = props => {
                     </div>
                 </div>
             </div>
-            <div id='contenedor_licenciatura' onClick={actualizarTitulacion} className='componente_editable_padre' style={{marginBottom:"20px"}}>
+            <div onClick={actualizarTitulacion} id='contenedor_licenciatura' style={{marginBottom:"20px"}}>
 
             </div>
         </div>

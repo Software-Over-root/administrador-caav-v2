@@ -1,15 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+// import { useAuth } from '../../../Context/Context';
 
 import "./Cine.css";
 
 const Cine = props => {
+    // const { editar } = useAuth();
 
     function createMarkup(materias) {
         return {__html: materias};
     }
 
     return(
-        <Fragment>
+        <div className='componente_editable_padre'>
             <div className='fondo_titulacion' style={{position:"relative", zIndex:"-9"}}>
                 <div className='container contenedor_xch center' style={{paddingBottom:"1px", paddingTop:"1px"}}>
                     <p className='titulo_1_nv' style={{color:"#2D9495", marginBottom:"0px"}}>
@@ -52,7 +54,7 @@ const Cine = props => {
                 </p>
                 <div dangerouslySetInnerHTML={createMarkup(props.titulacion.presentacion_final)}></div>
             </div>
-        </Fragment>
+        </div>
     );
 }
 
