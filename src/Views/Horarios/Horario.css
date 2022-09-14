@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'Caav';
+    src: url('./../../Font/Caav_oficial-Regular.otf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Kaus';
+    src: url('./../../Font/KaushanScript-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+body {
+    margin: 0;
+    font-family: 'Montserrat', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif, -apple-system, BlinkMacSystemFont,;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cont_horario{
+    padding: 0px 15%;
+}
+
+.fondo_horarios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10%;
+    background-color: #B7B7B7;
+    height: 212px;
+    border-radius: 25px;
+    margin-bottom: 50px;
+}
+
+.box_horario{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 23px -13px rgba(0,0,0,0.75);
+    border-radius: 15px;
+    padding: 0px 3%;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Poppins";
+    margin: 20px 0px ;
+
+}
+
+.texto_pass{
+    font-size: 24px;
+    font-family: "Montserrat";
+    color: #303030;
+    text-align: center;
+    line-height: 15px;
+}
+
+.btn_horario{
+    font-size: 16px;
+    color: white;
+    font-family: "Poppins";
+    font-weight: bold;
+    width: 142px;
+    padding: 8px 0px;
+    background-color: #00496C;
+    border: none;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+.btn_h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 224px;
+    font-size: 19px;
+    color: white;
+    font-family: "Montserrat";
+    font-weight: bold;
+    padding: 8px 0px;
+    background-color: #00496C;
+    border: none;
+    border-radius: 25px;
+    margin: 30px 20px;
+}
+
+.btn_h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 224px;
+    font-size: 19px;
+    color: white;
+    font-family: "Montserrat";
+    font-weight: bold;
+    padding: 8px 0px;
+    background-color: #BA2049;
+    border: none;
+    border-radius: 25px;
+    margin: 30px 20px;
+}
+
+.flex_padre_2{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-top: 60px;
+}
+.flex_pdf{
+    width: 40%;
+}
+
+.texto_pdf{
+    font-size: 24px;
+    font-family: "Poppins";
+    font-weight: bold;
+    color: #00496C;
+}
+.texto_pdf_2{
+    font-size: 30px !important;
+    font-family:"Jost";
+    margin: 10px 0px;
+    color: #494949;
+}

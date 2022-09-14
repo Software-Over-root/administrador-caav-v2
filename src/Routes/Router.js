@@ -27,6 +27,10 @@ import ArchivosReinscripcion from '../Views/ArchivosReinscripcion/ArchivosReinsc
 import Archivos from '../Views/Archivos/Archivos';
 import Archivo from '../Views/Archivo/Archivo';
 
+import Estudiantes from '../Views/Esrudiantes/Estudiantes';
+import Horario from '../Views/Horarios/Horario';
+import AgregarPdf from '../Views/AgregarPdf/AgregarPdf';
+
 const RouterFunction = () => {
     return (
         <BrowserRouter>
@@ -49,6 +53,9 @@ const RouterFunction = () => {
                 <Route path="/archivos" element={<Archivos />} />
                 <Route path="/archivo" element={<Archivo />} />
 
+                <Route path="/estudiantes" element={<Estudiantes />} />
+                <Route path="/horario" element={<Horario />} />
+                <Route path="/agregar-pdf" element={<AgregarPdf />} />
 
                 {/* <Route path="/licenciaturas/cine" element={<LicenciaturaCine />} /> */}
                 {/* <Route path="/licenciaturas/animacion" element={<LicenciaturaAnimacion />} /> */}
