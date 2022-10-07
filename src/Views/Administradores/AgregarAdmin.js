@@ -16,7 +16,6 @@ const AgregarAdministrador = () => {
 
     const agregar = e => {
         e.preventDefault();
-        console.log(administrador);
         adminsHelper.agregarAdmin(administrador);
     }
 

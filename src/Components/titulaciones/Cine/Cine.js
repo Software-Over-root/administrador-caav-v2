@@ -1,10 +1,9 @@
 import React from 'react';
-// import { useAuth } from '../../../Context/Context';
+
 
 import "./Cine.css";
 
 const Cine = props => {
-    // const { editar } = useAuth();
 
     function createMarkup(materias) {
         return {__html: materias};

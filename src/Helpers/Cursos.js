@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-var url_json = require("../../location.json");
+var url_json = require("../location.json");
 
 if (window.location.origin === ":3000") {
     url_json = url_json.local;

@@ -1,12 +1,13 @@
-import React, {Fragment, useEffect, useState}  from 'react';
+import React, {useEffect, useState}  from 'react';
 import Swal from 'sweetalert2';
+
+import Loader from '../../Components/Loader';
 
 import { useAuth } from '../../Context/Context';
 
 import "./Calendario.css";
 
 import img1 from "../../Images/escritorio/Calendario/1.png";
-// import eventos from "./Eventos";
 
 import calendarioHelper from '../../Helpers/Calendario';
 
@@ -64,7 +65,7 @@ const Calendario = props => {
         let res = await calendarioHelper.obtenerEventos();
         if (res.success) {
             setEventos(res.data);
-            calcularCalendario(new Date().getMonth(), new Date().getFullYear());
+            calcularCalendario(new Date().getMonth(), new Date().getFullYear(), res.data);
         } else {
             Swal.fire(
                 'Error!',
@@ -84,7 +85,7 @@ const Calendario = props => {
         }
         setBander(false);
         setMes(numeroMes);
-        calcularCalendario(numeroMes, numeroAnio);
+        calcularCalendario(numeroMes, numeroAnio, eventos);
     }
 
     const mesAnterior = () => {
@@ -97,10 +98,10 @@ const Calendario = props => {
         }
         setBander(false);
         setMes(numeroMes);
-        calcularCalendario(numeroMes, numeroAnio);
+        calcularCalendario(numeroMes, numeroAnio, eventos);
     }
 
-    const calcularCalendario = (mes, anio) => {
+    const calcularCalendario = (mes, anio, data) => {
         let priemDia = new Date(anio, mes, 1);
         let ultimoDia = new Date(anio, mes + 1, 0);
         const mesArray = [];
@@ -124,7 +125,7 @@ const Calendario = props => {
         for (let dia = 1; dia < ultimoDia.getDate() + 1; dia++) {
             let fecha = new Date(anio, mes, dia);
             let color = [];
-            let busqueda = eventos.filter(evento => evento.dia === fecha.getDate() && evento.mes === fecha.getMonth());
+            let busqueda = data.filter(evento => evento.dia === fecha.getDate() && evento.mes === fecha.getMonth());
             busqueda.map(evento => {
                 color.push(evento.color);
             })
@@ -146,6 +147,7 @@ const Calendario = props => {
             }
             mesArray.push(json);
         }
+        
         setDiasMes(mesArray);
         setBander(true);
     }
@@ -163,7 +165,7 @@ const Calendario = props => {
                     <p className='titulo_1_nv calendario_movil_bajo' style={{marginTop:"15px"}}>Calendario</p>
                 </div>
                 {!bandera ? (
-                    <h1>cargando...</h1>
+                    <Loader />
                 ) : (
                     <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}>
                         <div className='calendario'>

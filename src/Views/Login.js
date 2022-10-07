@@ -21,7 +21,7 @@ const Login = () => {
         console.log(user);
         e.preventDefault();
         let res = await adminsHelper.login(login.correo, login.password);
-        // console.log(res);
+        console.log(res);
         if (res.data.length > 0) {
             setUser({
                 nombre:res.data[0].tipoMostrar, 

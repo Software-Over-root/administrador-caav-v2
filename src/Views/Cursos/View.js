@@ -1,0 +1,170 @@
+import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Swal from 'sweetalert2';
+
+import { useAuth } from '../../Context/Context';
+
+
+const View = () => {
+    const { setEditar, editar, data, setData, setIndex, setTipo } = useAuth();
+
+    const agregarCurso = () => {
+        let ventana = document.getElementById("ventana_editable_agregar");
+        ventana.className = "ventana_editable col s3";
+        let vista = document.getElementById("vistas_generales");
+        vista.className = "col s9";
+        let cerrar = document.getElementById("invisible_cerrar_agregar");
+        cerrar.className = "invisible_cerrar_activado";
+
+        let ckedittor_contenedor = document.getElementById("descripcion_externa_nuevo");
+        ReactDOM.render(
+            <CKEditor
+                editor={ ClassicEditor }
+                config={ {
+                    toolbar: [ 'heading', 'bold', 'italic', 'link', 'bulletedList', 'undo', 'redo' ]
+                } }
+                onChange={ ( event, editor ) => {
+                    function removeTags(str) {
+                        if ((str===null) || (str===''))
+                            return false;
+                        else
+                            str = str.toString();
+
+                        return str.replace( /(<([^>]+)>)/ig, '');
+                    }
+                    
+                    const data = editor.getData();
+
+                    let res = removeTags(data)
+
+                    if (res.split("").length > 100) {
+                        Swal.fire(
+                            'Limite alcansado!',
+                            'El limite de caracteres es de 100' ,
+                            'error'
+                        )
+                    } else {
+                        setEditar({
+                            ...editar,
+                            descripcion_externa: data
+                        })
+                    }
+
+                } }
+            />,
+            ckedittor_contenedor
+        );
+
+        let ckedittor_contenedor_2 = document.getElementById("seccion_interna_nuevo");
+        ReactDOM.render(
+            <Fragment>
+                <div>
+                    <p>Descripcion Interna</p>
+                    <CKEditor
+                        editor={ ClassicEditor }
+                        onChange={ ( event, editor ) => {
+                            const data = editor.getData();
+                            setEditar({
+                                ...editar,
+                                descripcion_interna: data
+                            })
+                        } }
+                    />
+                </div>
+                <div style={{marginTop:"20px"}}>
+                    <p>Contenido del curso</p>
+                    <CKEditor
+                        editor={ ClassicEditor }
+                        onChange={ ( event, editor ) => {
+                            const data = editor.getData();
+                            setEditar({
+                                ...editar,
+                                contenido: data
+                            })
+                        } }
+                    />
+                </div>
+            </Fragment>,
+            ckedittor_contenedor_2
+        );
+    }
+
+    return (
+        <div id='vistas_generales' className='col s12' style={{padding:"0"}}>
+            <div className='container center'>
+                <p className='titulo_solicitud' style={{textAlign:"center"}}>
+                    Cursos y diplomados
+                </p>
+                <div className='row'>
+                    <div className='col s3' style={{padding:"10px"}}>
+                        <a href="/cursos/1">
+                            <div className='blog_box_1' >
+                                <p style={{color:"#fff", fontWeight:"bold", fontSize:"25px"}}>Artes visuales</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div className='col s3' style={{padding:"10px"}}>
+                        <a href="/cursos/2">
+                            <div className='blog_box_1' >
+                                <p style={{color:"#fff", fontWeight:"bold", fontSize:"25px"}}>Fotografía e imagen</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div className='col s3' style={{padding:"10px"}}>
+                        <a href="/cursos/3">
+                            <div className='blog_box_1' >
+                                <p style={{color:"#fff", fontWeight:"bold", fontSize:"25px"}}>Multimedia e internet</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div className='col s3' style={{padding:"10px"}}>
+                        <a href="/cursos/4">
+                            <div className='blog_box_1' >
+                                <p style={{color:"#fff", fontWeight:"bold", fontSize:"25px"}}>Video y cine</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div className='col s3' style={{padding:"10px"}}>
+                        <a href="/cursos/5">
+                            <div className='blog_box_1' >
+                                <p style={{color:"#fff", fontWeight:"bold", fontSize:"25px"}}>Diseño y publicidad</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div className='col s3' style={{padding:"10px"}}>
+                        <a href="/cursos/6">
+                            <div className='blog_box_1' >
+                                <p style={{color:"#fff", fontWeight:"bold", fontSize:"25px"}}>Animación y cómic</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div className='col s3' style={{padding:"10px"}}>
+                        <a href="/cursos/7">
+                            <div className='blog_box_1' >
+                                <p style={{color:"#fff", fontWeight:"bold", fontSize:"25px"}}>Escritura y guión</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div className='col s3' style={{padding:"10px"}}>
+                        <a href="/cursos/8">
+                            <div className='blog_box_1' >
+                                <p style={{color:"#fff", fontWeight:"bold", fontSize:"25px"}}>Audio y radio</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div style={{display:"flex", justifyContent:"center"}}>
+                    <div className='boton_2_nv'>
+                        <button onClick={agregarCurso} >
+                            <p>Agregar Curso</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default View;

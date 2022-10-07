@@ -1,4 +1,7 @@
 import Swal from 'sweetalert2';
+import ReactDOM from 'react-dom';
+import Loader from '../Components/Loader';
+import { Fragment } from 'react';
 
 var url_json = require("../location.json");
 
@@ -10,6 +13,13 @@ if (window.location.origin === ":3000") {
 
 const Directorio = {
     agregarDirectorio: async (data) => {
+        ReactDOM.render(
+            <div className='loader_padre'>
+                <Loader />
+            </div>,
+            document.getElementById("loader_padre")
+        );
+
         let url = url_json + "/agregar-directorio"
         let body = {
             correo: data.correo,
@@ -28,6 +38,12 @@ const Directorio = {
 
         let response = await fetch(url, request);
         let res = await response.json();
+
+        ReactDOM.render(
+            <Fragment></Fragment>,
+            document.getElementById("loader_padre")
+        );
+
         if (res.success) {
             Swal.fire(
               'Inserción exitosa!',
@@ -41,9 +57,7 @@ const Directorio = {
                 'Error!',
                 'No se pudo guardar el directorio, codigo: ' + res.code ,
                 'error'
-            ).then(() => {
-                window.location.reload();
-            })
+            )
         }
         return res;
     },
@@ -84,6 +98,13 @@ const Directorio = {
         }).then(async (result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                ReactDOM.render(
+                    <div className='loader_padre'>
+                        <Loader />
+                    </div>,
+                    document.getElementById("loader_padre")
+                );
+
                 let url = url_json + "/actualizar-directorio/" + id;
 
                 let body = {
@@ -103,6 +124,12 @@ const Directorio = {
         
                 let response = await fetch(url, request);
                 let res = await response.json();
+
+                ReactDOM.render(
+                    <Fragment></Fragment>,
+                    document.getElementById("loader_padre")
+                );
+
                 if (res.success) {
                     Swal.fire(
                         'Modificación exitosa!',
@@ -120,7 +147,6 @@ const Directorio = {
                         window.location.reload();
                     })
                 }
-                return res;
             } else if (result.isDenied) {
                 Swal.fire(
                     'Modificación cancelada',
@@ -141,6 +167,13 @@ const Directorio = {
         }).then(async (result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                ReactDOM.render(
+                    <div className='loader_padre'>
+                        <Loader />
+                    </div>,
+                    document.getElementById("loader_padre")
+                );
+
                 let url = url_json + "/eliminar-directorio/" + id;
                 let request = {
                     method: 'DELETE',
@@ -151,6 +184,12 @@ const Directorio = {
         
                 let response = await fetch(url, request);
                 let res = await response.json();
+
+                ReactDOM.render(
+                    <Fragment></Fragment>,
+                    document.getElementById("loader_padre")
+                );
+                
                 if (res.success) {
                     Swal.fire(
                         'Eliminación exitosa!',
@@ -164,9 +203,7 @@ const Directorio = {
                         'Error!',
                         'No se pudo eliminar el directorio',
                         'error'
-                    ).then(() => {
-                        window.location.reload();
-                    })
+                    )
                 }
                 return res;
             } else if (result.isDenied) {

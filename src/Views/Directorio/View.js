@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect, useState }  from 'react';
 import Swal from 'sweetalert2';
 
+import Loader from '../../Components/Loader';
+
 import "./Directorio.css";
 
 import icono_tel from "../../Images/Icon/2.png";
@@ -16,10 +18,9 @@ import { useAuth } from '../../Context/Context';
 
 
 const Directorio = props => {
-    const { setEditar } = useAuth();
+    const { setEditar, data, setData, setIndex } = useAuth();
 
     const [flag, setFlag] = useState(false);
-    const [directorio, setDirectorio] = useState([{}]);
 
     useEffect(() => {
         obtenerDirectorio();
@@ -28,7 +29,7 @@ const Directorio = props => {
     const obtenerDirectorio = async () => {
         let res = await directorioHelper.obtenerDirectorios();
         if (res.success) {
-            setDirectorio(res.data);
+            setData(res.data);
             setFlag(true);
         } else {
             Swal.fire(
@@ -48,7 +49,7 @@ const Directorio = props => {
         cerrar.className = "invisible_cerrar_activado";
     }
 
-    const actualizarPregunta = persona => {
+    const actualizarPersona = (persona, index) => {
         let ventana = document.getElementById("ventana_editable_editar");
         ventana.className = "ventana_editable col s3";
         let vista = document.getElementById("vistas_generales");
@@ -56,6 +57,7 @@ const Directorio = props => {
         let cerrar = document.getElementById("invisible_cerrar");
         cerrar.className = "invisible_cerrar_activado";
         setEditar(persona);
+        setIndex(index);
     }
 
     return (
@@ -119,11 +121,11 @@ const Directorio = props => {
                 <div className='componente_editable_padre' style={{display:"flex", flexWrap:"wrap", justifyContent:"center", marginBottom:"20px", paddingBottom:"20px"}}>
                     {!flag ? (
                         <div style={{display:"flex", justifyContent:"center", alignItems:"center", height:"50vh", width:"100%"}}>
-                            <h1>cargando...</h1>
+                            <Loader />
                         </div>
                     ) : (
-                        directorio.map((dato) => (
-                            <div onClick={() => {actualizarPregunta(dato)}} className='contenedor_directorio_1 componente_editable_2'>
+                        data.map((dato, index) => (
+                            <div onClick={() => {actualizarPersona(dato, index)}} className='contenedor_directorio_1 componente_editable_2'>
                                 <div className='contenedor_directorio'>
                                     <div>
                                         <p className='texto_directorio'>

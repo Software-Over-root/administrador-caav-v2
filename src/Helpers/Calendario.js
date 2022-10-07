@@ -1,4 +1,7 @@
 import Swal from 'sweetalert2';
+import { Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import Loader from '../Components/Loader';
 
 var url_json = require("../location.json");
 
@@ -10,6 +13,13 @@ if (window.location.origin === ":3000") {
 
 const Calendario = {
     agregarEvento: async (data) => {
+        ReactDOM.render(
+            <div className='loader_padre'>
+                <Loader />
+            </div>,
+            document.getElementById("loader_padre")
+        );
+
         let url = url_json + "/agregar-evento"
         let body = {
             dia: data.dia,
@@ -29,6 +39,12 @@ const Calendario = {
 
         let response = await fetch(url, request);
         let res = await response.json();
+
+        ReactDOM.render(
+            <Fragment></Fragment>,
+            document.getElementById("loader_padre")
+        );
+        
         if (res.success) {
             Swal.fire(
               'Inserción exitosa!',
@@ -85,6 +101,13 @@ const Calendario = {
         }).then(async (result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                ReactDOM.render(
+                    <div className='loader_padre'>
+                        <Loader />
+                    </div>,
+                    document.getElementById("loader_padre")
+                );
+
                 let url = url_json + "/actualizar-evento/" + id;
 
                 let body = {
@@ -105,7 +128,12 @@ const Calendario = {
         
                 let response = await fetch(url, request);
                 let res = await response.json();
-                console.log(res);
+
+                ReactDOM.render(
+                    <Fragment></Fragment>,
+                    document.getElementById("loader_padre")
+                );
+
                 if (res.success) {
                     Swal.fire(
                         'Modificación exitosa!',
@@ -144,6 +172,13 @@ const Calendario = {
         }).then(async (result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                ReactDOM.render(
+                    <div className='loader_padre'>
+                        <Loader />
+                    </div>,
+                    document.getElementById("loader_padre")
+                );
+                
                 let url = url_json + "/eliminar-evento/" + id;
                 let request = {
                     method: 'DELETE',
@@ -154,6 +189,12 @@ const Calendario = {
         
                 let response = await fetch(url, request);
                 let res = await response.json();
+
+                ReactDOM.render(
+                    <Fragment></Fragment>,
+                    document.getElementById("loader_padre")
+                );
+
                 if (res.success) {
                     Swal.fire(
                         'Eliminación exitosa!',

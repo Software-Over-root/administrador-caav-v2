@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import M from "materialize-css";
 import Swal from 'sweetalert2';
 
+import ReactDOM from 'react-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -17,25 +17,29 @@ import Publicidad from '../../Components/titulaciones/Publicidad/Publicidad';
 import Multimedia from '../../Components/titulaciones/Multimedia/Multimedia';
 import imgTitulacion from '../../Images/escritorio/Titulacion/1.png';
 
+import Loader from '../../Components/Loader';
+
 const Titulacion = props => {
     const { setEditar, editar } = useAuth();
     const [titulaciones, setTitulaciones] = useState([{}]);
-    const [titulacionInfo, setTitulacionInfo] = useState({});
+    const [flag, setFlag] = useState(false);
+    const [index, setIndex] = useState(false);
 
     useEffect(() => {
         if (titulaciones.length === 1) {
             obtenerTitulaciones();
         }
         setEditar({
-            ...editar,
-            ...titulacionInfo
+            ...editar
         })
-    },[titulacionInfo]);
+    },[]);
 
     const obtenerTitulaciones = async () => {
         let res = await titulacionHelper.obtenerTitulaciones();
         if (res.success) {
             setTitulaciones(res.data);
+            setEditar(res.data);
+            setFlag(true);
         } else {
             Swal.fire(
                 'Error!',
@@ -46,135 +50,153 @@ const Titulacion = props => {
     }
 
     const cambiarLicenciatura = licenciatura => {
-        // console.log("buscar licenciatura");
+        console.log("--------------------");
+        console.log("cambiar titulacion");
+        console.log(titulaciones);
         if (licenciatura === 0) {
-            //animacion
-            setEditar(titulaciones[3]);
-            ReactDOM.render(
-                <Animacion titulacion={titulaciones[3]} />,
-                document.getElementById('contenedor_licenciatura')
-            );
-        } else if (licenciatura === 1) {
             //cine
-            setEditar(titulaciones[0]);
-            ReactDOM.render(
-                <Cine titulacion={titulaciones[0]} />,
-                document.getElementById('contenedor_licenciatura')
-            );
-            
-        } else if (licenciatura === 2) {
-            //publicidad
-            setEditar(titulaciones[2]);
-            ReactDOM.render(
-                <Publicidad titulacion={titulaciones[2]} />,
-                document.getElementById('contenedor_licenciatura')
-            );
-        } else if (licenciatura === 3) {
+            console.log("cine");
+            setIndex(0);
+        } else if (licenciatura === 1) {
             //multimedia
-            setEditar(titulaciones[1]);
-            ReactDOM.render(
-                <Multimedia titulacion={titulaciones[1]} />,
-                document.getElementById('contenedor_licenciatura')
-            );
+            console.log("multimedia");
+            setIndex(1);
+        } else if (licenciatura === 2) {
+            //marketing
+            console.log("marketing");
+            setIndex(2);
+        } else if (licenciatura === 3) {
+            //animacion
+            console.log("animacion");
+            setIndex(3);
         }
+        // setEditar(titulaciones);
+
         setTimeout(() => {
             var elems = document.querySelectorAll('.collapsible');
             M.Collapsible.init(elems);
-        }, 500);
+        }, 100);
     }
 
     const actualizarTitulacion = () => {
+        console.log("cambiar licenciatura");
+
         let ventana = document.getElementById("ventana_editable_editar");
         ventana.className = "ventana_editable col s3";
         let vista = document.getElementById("vistas_generales");
         vista.className = "col s9";
         let cerrar = document.getElementById("invisible_cerrar");
         cerrar.className = "invisible_cerrar_activado";
+        console.log({"actual": editar[index], index, editar, titulaciones});
 
         ReactDOM.render(
             <Fragment>
                 <p>Descripcion</p>
                 <CKEditor
-                    data={editar.descripcion}
+                    data={titulaciones[index].descripcion}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
+                        let copiaEditar = [...titulaciones];
                         const data = editor.getData();
-                        setTitulacionInfo({
-                            ...titulacionInfo,
-                            descripcion: data
-                        })
+
+                        console.log({copiaEditar, index});
+                        // console.log({index, editarLicenciatura});
+
+                        // editarLicenciatura.descripcion = data;
+                        // setEditarLicenciatura(editarLicenciatura);
+
+                        copiaEditar[index]["descripcion"] = data;
+                        setEditar(copiaEditar);
                     } }
                 />
                 <p>7° cuatrimestre</p>
                 <CKEditor
-                    data={editar.cuatrimestre7}
+                    data={titulaciones[index].cuatrimestre7}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
+                        let copiaEditar = [...titulaciones];
                         const data = editor.getData();
-                        setTitulacionInfo({
-                            ...titulacionInfo,
-                            cuatrimestre7: data
-                        })
+                        
+                        copiaEditar[index]["cuatrimestre7"] = data;
+                        setEditar(copiaEditar);
+
+                        // editarLicenciatura.cuatrimestre7 = data;
+                        // setEditarLicenciatura(editarLicenciatura);
                     } }
                 />
                 <p>8° cuatrimestre</p>
                 <CKEditor
-                    data={editar.cuatrimestre8}
+                    data={titulaciones[index].cuatrimestre8}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
+                        let copiaEditar = [...titulaciones];
                         const data = editor.getData();
-                        setTitulacionInfo({
-                            ...titulacionInfo,
-                            cuatrimestre8: data
-                        })
+                        
+                        copiaEditar[index]["cuatrimestre8"] = data;
+                        setEditar(copiaEditar);
+
+                        // editarLicenciatura.cuatrimestre8 = data;
+                        // setEditarLicenciatura(editarLicenciatura);
                     } }
                 />
                 <p>9° cuatrimestre</p>
                 <CKEditor
-                    data={editar.cuatrimestre9}
+                    data={titulaciones[index].cuatrimestre9}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
+                        let copiaEditar = [...titulaciones];
                         const data = editor.getData();
-                        setTitulacionInfo({
-                            ...titulacionInfo,
-                            cuatrimestre9: data
-                        })
+                        
+                        copiaEditar[index]["cuatrimestre9"] = data;
+                        setEditar(copiaEditar);
+
+                        // editarLicenciatura.cuatrimestre9 = data;
+                        // setEditarLicenciatura(editarLicenciatura);
                     } }
                 />
                 <p>Carpeta de investigacion</p>
                 <CKEditor
-                    data={editar.carpeta_investigacion}
+                    data={titulaciones[index].carpeta_investigacion}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
+                        let copiaEditar = [...titulaciones];
                         const data = editor.getData();
-                        setTitulacionInfo({
-                            ...titulacionInfo,
-                            carpeta_investigacion: data
-                        })
+                        
+                        copiaEditar[index]["carpeta_investigacion"] = data;
+                        setEditar(copiaEditar);
+
+                        // editarLicenciatura.carpeta_investigacion = data;
+                        // setEditarLicenciatura(editarLicenciatura);
                     } }
                 />
                 <p>Presentacion final</p>
                 <CKEditor
-                    data={editar.presentacion_final}
+                    data={titulaciones[index].presentacion_final}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
+                        let copiaEditar = [...titulaciones];
                         const data = editor.getData();
-                        setTitulacionInfo({
-                            ...titulacionInfo,
-                            presentacion_final: data
-                        })
+                        
+                        copiaEditar[index]["presentacion_final"] = data;
+                        setEditar(copiaEditar);
+
+                        // editarLicenciatura.presentacion_final = data;
+                        // setEditarLicenciatura(editarLicenciatura);
                     } }
                 />
                 <p>Carpeta de produccion</p>
                 <CKEditor
-                    data={editar.carpeta_produccion}
+                    data={titulaciones[index].carpeta_produccion}
                     editor={ ClassicEditor }
                     onChange={ ( event, editor ) => {
+                        let copiaEditar = [...titulaciones];
                         const data = editor.getData();
-                        setTitulacionInfo({
-                            ...titulacionInfo,
-                            carpeta_produccion: data
-                        })
+                        
+                        copiaEditar[index]["carpeta_produccion"] = data;
+                        setEditar(copiaEditar);
+
+                        // editarLicenciatura.carpeta_produccion = data;
+                        // setEditarLicenciatura(editarLicenciatura);
                     } }
                 />
             </Fragment>,
@@ -184,9 +206,8 @@ const Titulacion = props => {
 
     return (
         <div id='vistas_generales' className='col s12' style={{padding:"0"}}>
-        {/* <div id='vista_titulacion' className='col s12' style={{padding:"0"}}> */}
-            <img src={imgTitulacion} style={{width:"100%"}} alt="Titulacion CAAV" />           
-            
+            <img src={imgTitulacion} style={{width:"100%"}} alt="Titulacion CAAV" />
+
             <div className='container contenedor_xch center'>
                 <p className='titulo_1_nv' style={{margin:"15px 0 10px 0"}}>
                     Titulación
@@ -241,47 +262,64 @@ const Titulacion = props => {
                     Se asignará una fecha para tu examen profesional, al que asistirá nuestra 
                     Directora, los sinodales y, si lo deseas, cinco invitados tuyos.
                 </p>
-                <div className='row' style={{margin:"0px", marginBottom:"10px"}}>
-                    <div className='col s6 m3 l3 xl3'>
-                        <div className='boton_1_d3'>
-                            <button onClick={() => {cambiarLicenciatura(0)}} type="">
-                                <p>
-                                    Animación
-                                </p>
-                            </button>                           
+                {!flag ? (
+                    <div>
+                        <Loader  />
+                    </div>
+                ) : (
+                    <div className='row' style={{margin:"0px", marginBottom:"10px"}}>
+                        <div className='col s6 m3 l3 xl3'>
+                            <div className='boton_1_d3'>
+                                <button onClick={() => {cambiarLicenciatura(3)}} type="">
+                                    <p>
+                                        Animación
+                                    </p>
+                                </button>                           
+                            </div>
+                        </div>
+                        <div className='col s6 m3 l3 xl3'>
+                            <div className='boton_2_d3'>
+                                <button onClick={() => {cambiarLicenciatura(0)}} type="">
+                                    <p>
+                                        Cine Digital
+                                    </p>
+                                </button>                           
+                            </div>
+                        </div>
+                        <div className='col s6 m3 l3 xl3'>
+                            <div className='boton_3_d3'>
+                                <button onClick={() => {cambiarLicenciatura(1)}} type="">
+                                    <p>
+                                        Multimedia
+                                    </p>
+                                </button>                           
+                            </div>
+                        </div>
+                        <div className='col s6 m3 l3 xl3'>
+                            <div className='boton_4_d3'>
+                                <button onClick={() => {cambiarLicenciatura(2)}} type="">
+                                    <p>
+                                        Marketing
+                                    </p>
+                                </button>                           
+                            </div>
                         </div>
                     </div>
-                    <div className='col s6 m3 l3 xl3'>
-                        <div className='boton_2_d3'>
-                            <button onClick={() => {cambiarLicenciatura(1)}} type="">
-                                <p>
-                                    Cine Digital
-                                </p>
-                            </button>                           
-                        </div>
-                    </div>
-                    <div className='col s6 m3 l3 xl3'>
-                        <div className='boton_3_d3'>
-                            <button onClick={() => {cambiarLicenciatura(3)}} type="">
-                                <p>
-                                    Multimedia
-                                </p>
-                            </button>                           
-                        </div>
-                    </div>
-                    <div className='col s6 m3 l3 xl3'>
-                        <div className='boton_4_d3'>
-                            <button onClick={() => {cambiarLicenciatura(2)}} type="">
-                                <p>
-                                    Marketing
-                                </p>
-                            </button>                           
-                        </div>
-                    </div>
-                </div>
+                )}
             </div>
             <div onClick={actualizarTitulacion} id='contenedor_licenciatura' style={{marginBottom:"20px"}}>
-
+                {index === 0 && (
+                    <Cine titulacion={titulaciones[0]}/>
+                )}
+                {index === 1 && (
+                    <Multimedia titulacion={titulaciones[1]} />
+                )}
+                {index === 2 && (
+                    <Publicidad titulacion={titulaciones[2]} />
+                )}
+                {index === 3 && (
+                    <Animacion titulacion={titulaciones[3]} />
+                )}
             </div>
         </div>
     );

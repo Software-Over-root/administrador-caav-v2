@@ -48,29 +48,29 @@ const SideNav = () => {
                     <li><a href="/profesores">Profesores</a></li>
                     <li><a href="/calendario">Calendario</a></li>
                     <li><a href="/reinscripcion">Reinscripcion Vista</a></li>
-                    <li><a href="/titulaciones">Titulaciones</a></li>
+                    <li><a href="/titulaciones">Titulaciones (pendiente)</a></li>
                     <li><a href="/preguntas-frecuentes">FAQs</a></li>
-                    <li><a href="/proceso-admision">Proceso de admision</a></li> 
-                    {/* <li>---------------------------------------------------</li> */}
+                    <li><a href="/proceso-admision">Proceso de admision (falta)</a></li> 
+                    <li>---------------------------------------------------</li>
                     <li><a href="/solicitud-reinscripciones">Solicitud de reinscripcion</a></li> 
                     <li><a href="/archivos-reinscripciones">Archivos de reinscripcion</a></li> 
                     <li><a href="/solicitud-inscripciones">Solicitud de inscripcion</a></li> 
                     <li><a href="/archivos-inscripciones">Archivos de inscripcion</a></li> 
-                    {/* <li>---------------------------------------------------</li> */}
+                    <li>---------------------------------------------------</li>
 
-                    {/* <li><a href="/estudiantes">Estudianes</a></li>
+                    <li><a href="/estudiantes">Estudianes</a></li>
 
                     <li><a href="/index">Home</a></li>
                     <li><a href="/becas">Becas</a></li>
 
                     <li><a href="/formato-inscripcion">Formato de inscripción</a></li>
-                    <li><a href="/cursos">Cursos, talleres y diplomaods</a></li>
+                    <li><a href="/cursos-diplomados">Cursos, talleres y diplomaods</a></li>
                     <li><a href="/licenciaturas/cine">Licenciatura Cine</a></li>
                     <li><a href="/licenciaturas/animacion">Licenciatura Animacion</a></li>
                     <li><a href="/licenciaturas/marketing">Licenciatura Marketing</a></li>
                     <li><a href="/licenciaturas/multimedia">Licenciatura Multimedia</a></li>
                     <li>---------------------------------------------------</li> 
-                    <li><a href="/blogs-noticias">Blogs y noticias</a></li> */}
+                    <li><a href="/blogs-noticias">Blogs y noticias</a></li>
                 </Fragment>
             </ul>
         </Fragment>

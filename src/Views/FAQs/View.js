@@ -13,9 +13,11 @@ import "./Preguntas.css";
 import img4 from "../../Images/escritorio/Faqs/1.png";
 
 import FAQs from '../../Components/FAQs/FAQs'
+import Loader from "../../Components/Loader";
 
 const Preguntas = props => {
-    const { setEditar, editar } = useAuth();
+    const { setEditar, editar, setData } = useAuth();
+    const [flag, setFlag] = useState(false);
     const [preguntas, setPreguntas] = useState([{}]);
 
     useEffect(() => {
@@ -26,6 +28,8 @@ const Preguntas = props => {
         let res = await preguntasHelpers.obtenerPreguntas();
         if (res.success) {
             setPreguntas(res.data);
+            setData(res.data);
+            setFlag(true);
         } else {
             Swal.fire(
                 'Error!',
@@ -68,7 +72,13 @@ const Preguntas = props => {
                     FAQ's
             </p>
 
-            <FAQs data={preguntas}/>
+            {!flag ? (
+                <div>
+                    <Loader />
+                </div>
+            ) : (
+                <FAQs data={preguntas}/>
+            )}
 
             <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
                 <div className='boton_1_nv' onClick={agregarPregunta} style={{cursor:"pointer"}}>

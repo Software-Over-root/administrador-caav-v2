@@ -1,4 +1,8 @@
 import Swal from 'sweetalert2';
+import ReactDOM from 'react-dom';
+import Loader from '../Components/Loader';
+import { Fragment } from 'react';
+
 
 var url_json = require("../location.json");
 
@@ -33,6 +37,13 @@ const ReinscripcionVista = {
         }).then(async (result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                ReactDOM.render(
+                    <div className='loader_padre'>
+                        <Loader />
+                    </div>,
+                    document.getElementById("loader_padre")
+                );
+
                 let url = url_json + "/actualizar-reinscripcion/" + id;
 
                 let body = {
@@ -64,6 +75,12 @@ const ReinscripcionVista = {
         
                 let response = await fetch(url, request);
                 let res = await response.json();
+                
+                ReactDOM.render(
+                    <Fragment></Fragment>,
+                    document.getElementById("loader_padre")
+                );
+
                 if (res.success) {
                     Swal.fire(
                         'Modificación exitosa!',

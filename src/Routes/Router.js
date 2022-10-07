@@ -15,7 +15,9 @@ import Admision from '../Views/Admision/Aspirantes';
 // import Becas from '../Views/Beca/Becas';
 import FAQs from '../Views/FAQs/Preguntas';
 
-// import Blogs from '../Views/Blogs/Blog';
+// import Blogs from '../Views/Blogs/Blogs';
+import CursosGeneral from '../Views/Cursos/General';
+import Cursos from '../Views/Cursos/Cursos';
 
 
 // import LicenciaturaCine from '../Views/Licenciaturas/Cine/Cine';
@@ -33,7 +35,7 @@ import ArchivosInscripcion from '../Views/AllArchivos/ArchivosInscripcion/Archiv
 import Archivos from '../Views/AllArchivos/Archivos/Archivos';
 import Archivo from '../Views/AllArchivos/Archivo/Archivo';
 
-import Estudiantes from '../Views/Esrudiantes/Estudiantes';
+import Estudiantes from '../Views/Estudiantes/Estudiantes';
 import Horario from '../Views/Horarios/Horario';
 import AgregarPdf from '../Views/AgregarPdf/AgregarPdf';
 
@@ -41,9 +43,11 @@ import Administradores from '../Views/Administradores/Administradores';
 import EditarAdministrador from '../Views/Administradores/EditarAdministrador';
 import AgregarAdministrador from '../Views/Administradores/AgregarAdmin';
 
+
 const RouterFunction = () => {
     return (
         <BrowserRouter>
+            <div id='loader_padre' />
             <Routes>
                 <Route path="/" element={<Login />} />
 
@@ -76,6 +80,9 @@ const RouterFunction = () => {
                 <Route path="/administrador-agregar" element={<AgregarAdministrador />} />
 
                 {/* <Route path="/blogs" element={<Blogs />} /> */}
+
+                <Route path="/cursos-diplomados" element={<CursosGeneral />} />
+                <Route path="/cursos/:tipo" element={<Cursos />} />
 
 
                 {/* <Route path="/licenciaturas/cine" element={<LicenciaturaCine />} /> */}

@@ -88,10 +88,38 @@ button{
   }
 }
 
-.ventana_editable_desactivada{
-  display: none;
-  position: relative;
+@keyframes slide_2 {
+  0% {
+    left: 0px;
+  }
+
+  100% {
+    left: -900px;
+  }
+
+
 }
+
+.ventana_editable_desactivada{
+  display: flex;
+  position: relative;
+  animation: slide_2 0.5s linear;
+  left: -1400px !important;
+}
+.ventana_editable_desactivada .hijo_fixed{
+  top: 0px;
+  /* left: -900px !important; */
+  margin-left: -8px !important;
+  background: #efefef;
+  background-image: url(./Images/fondo_admin_1.png);
+  background-size: 100%;
+  position: fixed;
+  z-index: 11;
+  height: 100vh;
+  animation: slide_2 0.5s linear;
+  transition: all linear 0.5s;
+}
+
 
 .ventana_editable{
   background: #efefef;
@@ -122,6 +150,12 @@ button{
   position: fixed;
   cursor: pointer;
   top: 0;
+}
+
+#vistas_generales{
+  position: absolute;
+  right: 0;
+  transition: all linear 0.5s;
 }
 /* fin - efecto lateral editar */
 
@@ -169,6 +203,17 @@ button{
   cursor: pointer;
   margin: 0%;
 }
+
+.boton_agregar_formulario{
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background: rgb(151, 13, 25);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* fin - botones */
 
 
@@ -182,3 +227,25 @@ button{
   margin-bottom: 10px;
 }
 /* fin - textos */
+
+
+/* inicio - loader */
+.loader_padre{
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  background: #0000004d;
+}
+/* fin - loader */
+
+
+/* inicio blogs */
+.blog_box_1{
+  background: rgb(0, 73, 108);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* fin blogs */

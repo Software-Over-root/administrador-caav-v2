@@ -1,4 +1,7 @@
 import Swal from 'sweetalert2';
+import { Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import Loader from '../Components/Loader';
 
 var url_json = require("../location.json");
 
@@ -10,6 +13,13 @@ if (window.location.origin === ":3000") {
 
 const Preguntas_frecuentes = {
     agregarPregunta: async (data) => {
+        ReactDOM.render(
+            <div className='loader_padre'>
+                <Loader />
+            </div>,
+            document.getElementById("loader_padre")
+        );
+
         let url = url_json + "/agregar-pregunta"
         let body = {
             pregunta: data.pregunta,
@@ -26,6 +36,12 @@ const Preguntas_frecuentes = {
 
         let response = await fetch(url, request);
         let res = await response.json();
+
+        ReactDOM.render(
+            <Fragment></Fragment>,
+            document.getElementById("loader_padre")
+        );
+
         if (res.success) {
             Swal.fire(
               'Inserción exitosa!',
@@ -82,6 +98,13 @@ const Preguntas_frecuentes = {
         }).then(async (result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                ReactDOM.render(
+                    <div className='loader_padre'>
+                        <Loader />
+                    </div>,
+                    document.getElementById("loader_padre")
+                );
+
                 let url = url_json + "/actualizar-preguntas/" + id;
 
                 let body = {
@@ -99,7 +122,12 @@ const Preguntas_frecuentes = {
         
                 let response = await fetch(url, request);
                 let res = await response.json();
-                console.log(res);
+
+                ReactDOM.render(
+                    <Fragment></Fragment>,
+                    document.getElementById("loader_padre")
+                );
+
                 if (res.success) {
                     Swal.fire(
                         'Modificación exitosa!',
@@ -138,6 +166,13 @@ const Preguntas_frecuentes = {
         }).then(async (result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                ReactDOM.render(
+                    <div className='loader_padre'>
+                        <Loader />
+                    </div>,
+                    document.getElementById("loader_padre")
+                );
+
                 let url = url_json + "/eliminar-preguntas/" + id;
                 let request = {
                     method: 'DELETE',
@@ -148,6 +183,12 @@ const Preguntas_frecuentes = {
         
                 let response = await fetch(url, request);
                 let res = await response.json();
+
+                ReactDOM.render(
+                    <Fragment></Fragment>,
+                    document.getElementById("loader_padre")
+                );
+                
                 if (res.success) {
                     Swal.fire(
                         'Eliminación exitosa!',

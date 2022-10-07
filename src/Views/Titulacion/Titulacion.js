@@ -1,4 +1,7 @@
 import React, { Fragment, useState }  from 'react';
+import ReactDOM from 'react-dom';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import { useAuth } from '../../Context/Context';
 
@@ -8,13 +11,14 @@ import View from './View';
 
 import titulacionHelper from '../../Helpers/Titulacion';
 
-const Titulacion = props => {
-    const { editar } = useAuth();
+const Titulacion = () => {
+    const { editar, index } = useAuth();
 
     const actualizar = e => {
         e.preventDefault();
-        console.log(editar);
-        titulacionHelper.editarTitulacion(editar, editar._id);
+
+        console.log(editar[index]);
+        // titulacionHelper.editarTitulacion(editar[index], editar[index]._id);
     }
 
 

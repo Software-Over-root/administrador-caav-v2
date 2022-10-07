@@ -1,27 +1,42 @@
-import React, { Fragment, useState }  from 'react';
+import React, { Fragment, useEffect, useState }  from 'react';
 
 import { useAuth } from '../../Context/Context';
 
 import SideNav from '../../Components/SideNav';
 import FormularioAgregar from '../../Components/FormularioAgregar';
 import FormularioEditar from '../../Components/FormularioEditar';
+import Loader from '../../Components/Loader';
 import View from './View';
 
 import directorioHelper from '../../Helpers/Directorio';
 
 const Directorio = props => {
-    const { editar } = useAuth();
+    const { editar, index, data, setData } = useAuth();
 
+    const [flag, setFlag] = useState(false);
     const [directorio, setDirectorio] = useState({
         ...editar
     });
 
+    useEffect(() => {
+        setFlag(false);
+        setDirectorio({...editar});
+        setTimeout(() => {
+            setFlag(true);
+        }, 100);
+    }, [editar]);
+
 
     const leerDato = e => {
+        let copiaData = [...data];
+        
         setDirectorio({
             ...directorio,
             [e.target.name]: e.target.value
         });
+
+        copiaData[index][e.target.name] = e.target.value
+        setData(copiaData);
     }
 
     const agregar = e => {
@@ -29,7 +44,7 @@ const Directorio = props => {
         directorioHelper.agregarDirectorio(directorio);
     }
 
-    const actualizar = e => {
+    const actualizar = async e => {
         e.preventDefault();
         directorioHelper.editarDirectorio(directorio, editar._id);
     }
@@ -76,34 +91,38 @@ const Directorio = props => {
                 </FormularioAgregar>
                 <FormularioEditar>
                     <p className='titulo_1_admin'>Editar directorio</p>
-                    <form onSubmit={actualizar}>
-                        <div className="input-field">
-                            <input onChange={leerDato} defaultValue={editar.nombre} id="nombre" name='nombre' type="text" className="validate" />
-                            <label className='active' for="nombre">Nombre</label>
-                        </div>
-                        <div className="input-field">
-                            <input onChange={leerDato} defaultValue={editar.puesto} id="puesto" name='puesto' type="text" className="validate" />
-                            <label className='active' for="puesto">Puesto</label>
-                        </div>
-                        <div className="input-field">
-                            <input onChange={leerDato} defaultValue={editar.correo} id="correo" name='correo' type="text" className="validate" />
-                            <label className='active' for="correo">Correo</label>
-                        </div>
-                        <div className="input-field">
-                            <input onChange={leerDato} defaultValue={editar.numero} id="numero" name='numero' type="text" className="validate" />
-                            <label className='active' for="numero">Numero</label>
-                        </div>
-                        <div className="input-field">
-                            <input onChange={leerDato} defaultValue={editar.posicion} id="posicion" name='posicion' type="text" className="validate" />
-                            <label className='active' for="posicion">Posicion</label>
-                        </div>
+                    {!flag ? (
+                        <Loader />
+                    ) : (
+                        <form onSubmit={actualizar}>
+                            <div className="input-field">
+                                <input onChange={leerDato} defaultValue={directorio.nombre} id="nombre" name='nombre' type="text" className="validate" />
+                                <label className='active' for="nombre">Nombre</label>
+                            </div>
+                            <div className="input-field">
+                                <input onChange={leerDato} defaultValue={directorio.puesto} id="puesto" name='puesto' type="text" className="validate" />
+                                <label className='active' for="puesto">Puesto</label>
+                            </div>
+                            <div className="input-field">
+                                <input onChange={leerDato} defaultValue={directorio.correo} id="correo" name='correo' type="text" className="validate" />
+                                <label className='active' for="correo">Correo</label>
+                            </div>
+                            <div className="input-field">
+                                <input onChange={leerDato} defaultValue={directorio.numero} id="numero" name='numero' type="text" className="validate" />
+                                <label className='active' for="numero">Numero</label>
+                            </div>
+                            <div className="input-field">
+                                <input onChange={leerDato} defaultValue={directorio.posicion} id="posicion" name='posicion' type="text" className="validate" />
+                                <label className='active' for="posicion">Posicion</label>
+                            </div>
 
-                        <div className='botonn_1_admin' style={{marginTop:"10px"}}>
-                            <button type='submit'>
-                                Actualizar persona
-                            </button>
-                        </div>
-                    </form>
+                            <div className='botonn_1_admin' style={{marginTop:"10px"}}>
+                                <button type='submit'>
+                                    Actualizar persona
+                                </button>
+                            </div>
+                        </form>
+                    )}
                     <div className='botonn_2_admin' style={{marginTop:"10px"}}>
                         <button onClick={eliminar}>
                             Eliminar persona

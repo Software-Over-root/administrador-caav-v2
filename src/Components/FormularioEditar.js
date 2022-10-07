@@ -1,7 +1,12 @@
 import React, { Fragment } from 'react';
+import { useAuth } from '../Context/Context';
 
 const FormularioEditar = props => {
+    const { setEditar, setIndex } = useAuth();
+
     const cerrar = e => {
+        setEditar({});
+        setIndex(false);
         let ventana = document.getElementById("ventana_editable_editar");
         ventana.className = "ventana_editable_desactivada";
         let vista = document.getElementById("vistas_generales");

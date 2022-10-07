@@ -6,6 +6,8 @@ import { useAuth } from '../../Context/Context';
 
 import "./Reinscripcion.css";
 
+import Loader from '../../Components/Loader';
+
 import img1 from "../../Images/Icon/8.png";
 import img2 from "../../Images/Icon/9.png";
 import img3 from "../../Images/Icon/10.png";
@@ -33,6 +35,7 @@ const Reinscripcion = props => {
     const { setEditar, editar } = useAuth();
 
     const [flag, setFlag] = useState(false);
+    const [reinscripcion, setReinscripcion] = useState(false);
 
     useEffect(() => {
         obtenerReinscripcion();
@@ -40,8 +43,8 @@ const Reinscripcion = props => {
 
     const obtenerReinscripcion = async () => {
         let res = await reinscripcionHelper.obtenerLaReinscripcion("6320e883b8bb93da171603ba");
-        console.log(res);
         if (res.success) {
+            setReinscripcion(res.data);
             setEditar(res.data);
             setFlag(true);
         } else {
@@ -60,6 +63,8 @@ const Reinscripcion = props => {
         vista.className = "col s9";
         let cerrar = document.getElementById("invisible_cerrar");
         cerrar.className = "invisible_cerrar_activado";
+
+        setEditar(reinscripcion);
     }
 
     return (
@@ -76,65 +81,71 @@ const Reinscripcion = props => {
                 </p>
             </div>
 
-            <div onClick={actualizarVista} className='container center componente_editable_padre'>
-                <div className='flex_padre_reinscripcion'>
-                    <div style={{position:"relative", zIndex:"-9"}}>
-                        <div className='box_reinscripcion_fechas'>
-                            <p className='titulo_4_nv' style={{fontWeight:"bold"}}> 
-                                Fechas y costos de reinscripción
-                            </p>
-                            <p>
-                                Las clases inician el:<br/>
-                                <b>{editar.inicio}</b><br/><br/>
-
-                                La fecha límite para reinscribirte <br/>
-                                en período regular es el: <br/>
-                                <b>{editar.fecha_fin_1}</b><br/><br/>
-
-                                Costo de reinscripción en periodo regular:<br/>
-                                <b>{editar.costo_reinscripcion}</b><br/><br/>
-
-                                Fecha límite para reinscripción extemporánea:<br/>
-                                <b>{editar.fecha_fin_2}</b> <br/><br/>
-
-                                Costo de reinscripción extemporánea:<br/>
-                                <b>{editar.costo_reinscripcion_atrasada}</b>
-                            </p>  
-                        </div>
-                    </div>
-
-                    <div style={{position:"relative", zIndex:"-9"}}>
-                        <div className='box_reinscripcion_costos componente_editable_2' style={{padding:"0px", background:"#fff"}}>
-                            <div style={{padding:"10px", background:"#00496C"}}>
+            {!flag ? (
+                <div className='container center componente_editable_padre' style={{background:"#00000054", height:"500px"}}>
+                    <Loader />
+                </div>
+            ) : (
+                <div onClick={actualizarVista} className='container center componente_editable_padre'>
+                    <div className='flex_padre_reinscripcion'>
+                        <div style={{position:"relative", zIndex:"-9"}}>
+                            <div className='box_reinscripcion_fechas'>
                                 <p className='titulo_4_nv' style={{fontWeight:"bold"}}> 
-                                    Costos de licenciaturas
+                                    Fechas y costos de reinscripción
                                 </p>
                                 <p>
-                                    Cuatrimestre:<br/>
-                                    <b>{editar.costo_total}</b> <br/>
-                                    Se paga en 4 mensualidades de <br/>
-                                    <span style={{fontWeight:"bold"}}>{editar.costo_mensualidad} </span> 
-                                    cada una,<br/> los dias 10 de cada mes.<br/><br/>
+                                    Las clases inician el:<br/>
+                                    <b>{editar.inicio}</b><br/><br/>
 
-                                    Si se pagan las mensualidades después de <br/>
-                                    estas fechas deberás pagar: <br/>
-                                    <span style={{fontWeight:"bold"}}>{editar.costo_mensualidad_atrasado}</span><br/><br/>
+                                    La fecha límite para reinscribirte <br/>
+                                    en período regular es el: <br/>
+                                    <b>{editar.fecha_fin_1}</b><br/><br/>
+
+                                    Costo de reinscripción en periodo regular:<br/>
+                                    <b>{editar.costo_reinscripcion}</b><br/><br/>
+
+                                    Fecha límite para reinscripción extemporánea:<br/>
+                                    <b>{editar.fecha_fin_2}</b> <br/><br/>
+
+                                    Costo de reinscripción extemporánea:<br/>
+                                    <b>{editar.costo_reinscripcion_atrasada}</b>
                                 </p>  
                             </div>
-                            <div className='padding_movil_re_1' style={{padding:"10px", background:"#A80938", marginTop:"10px"}}>
-                                <p>
-                                    ¡Puedes pagar el cuatrimestre <br />
-                                    en una sola exhibición por sólo <b>{editar.costo_unico_pago}</b> <br />
-                                    liquidando antes del <b>{editar.fecha_fin_3}</b>
-                                </p>
+                        </div>
+
+                        <div style={{position:"relative", zIndex:"-9"}}>
+                            <div className='box_reinscripcion_costos componente_editable_2' style={{padding:"0px", background:"#fff"}}>
+                                <div style={{padding:"10px", background:"#00496C"}}>
+                                    <p className='titulo_4_nv' style={{fontWeight:"bold"}}> 
+                                        Costos de licenciaturas
+                                    </p>
+                                    <p>
+                                        Cuatrimestre:<br/>
+                                        <b>{editar.costo_total}</b> <br/>
+                                        Se paga en 4 mensualidades de <br/>
+                                        <span style={{fontWeight:"bold"}}>{editar.costo_mensualidad} </span> 
+                                        cada una,<br/> los dias 10 de cada mes.<br/><br/>
+
+                                        Si se pagan las mensualidades después de <br/>
+                                        estas fechas deberás pagar: <br/>
+                                        <span style={{fontWeight:"bold"}}>{editar.costo_mensualidad_atrasado}</span><br/><br/>
+                                    </p>  
+                                </div>
+                                <div className='padding_movil_re_1' style={{padding:"10px", background:"#A80938", marginTop:"10px"}}>
+                                    <p>
+                                        ¡Puedes pagar el cuatrimestre <br />
+                                        en una sola exhibición por sólo <b>{editar.costo_unico_pago}</b> <br />
+                                        liquidando antes del <b>{editar.fecha_fin_3}</b>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <p style={{color:"#a80938", fontWeight:"bold", marginTop:"0px"}}>
+                        Precios sujetos a cambio
+                    </p>
                 </div>
-                <p style={{color:"#a80938", fontWeight:"bold", marginTop:"0px"}}>
-                    Precios sujetos a cambio
-                </p>
-            </div>
+            )}
 
             <div className='container'>
                 <p className='titulo_1_nv center' style={{fontFamily:"Caav"}}>
@@ -358,59 +369,65 @@ const Reinscripcion = props => {
                 </div>
             </div>
 
-            <div onClick={actualizarVista} className='componente_editable_padre'>
-                <div className='fondo_reinscripcion_2s'>
-                    <div className='container'>
-                        <div className='center'>
-                            <p className='encabezadosCaav center' style={{color:'#00496C', margin:'0'}}>
-                                <span className='encabezadosMonserrat'>
-                                    Fechas y pasos a seguir 
-                                </span><br />
-                                para hacer tu horario especial
-                            </p>
-                            <p>
-                                Lo primero es reinscribirte en línea o personalmente en la sede Gance. <br />
-                                La fecha límite es el <b>{editar.fecha_fin_1}</b>
-                            </p>
-                        </div>
-                        <div className='row' style={{marginBottom:"0px"}}>
-                            <div className='col s12 m12 l6 center'>
-                                <p style={{marginTop:'0'}}>
-                                    <b>Si sigues estudiando en línea:</b><br/>
-                                    Envía un correo <a href='mailto:academia@caav.mx' style={{color:'#A80938'}}>
-                                        <u>aquí </u>
-                                    </a> 
-                                    antes del <b>{editar.fecha_fin_4}</b>, <br/>
-                                    para concertar tu cita virtual. <br/><br/>
-
-                                    <b>Horarios de citas: </b><br/>
-                                    {editar.horario_1}
+            {!flag ? (
+                <div className='componente_editable_padre' style={{background:"#00000054", height:"300px"}}>
+                    <Loader />
+                </div>
+            ) : (
+                <div onClick={actualizarVista} className='componente_editable_padre'>
+                    <div className='fondo_reinscripcion_2s'>
+                        <div className='container'>
+                            <div className='center'>
+                                <p className='encabezadosCaav center' style={{color:'#00496C', margin:'0'}}>
+                                    <span className='encabezadosMonserrat'>
+                                        Fechas y pasos a seguir 
+                                    </span><br />
+                                    para hacer tu horario especial
+                                </p>
+                                <p>
+                                    Lo primero es reinscribirte en línea o personalmente en la sede Gance. <br />
+                                    La fecha límite es el <b>{editar.fecha_fin_1}</b>
                                 </p>
                             </div>
-                            <div className='col s12 m12 l6 center'>
-                                <p style={{marginTop:'0'}}>
-                                    <b>Si estás estudiando en presencial:</b><br/>
-                                    Acude a la Coordinación Académica<br/>
-                                    con tu ficha de reinscripción.<br/><br/>
+                            <div className='row' style={{marginBottom:"0px"}}>
+                                <div className='col s12 m12 l6 center'>
+                                    <p style={{marginTop:'0'}}>
+                                        <b>Si sigues estudiando en línea:</b><br/>
+                                        Envía un correo <a href='mailto:academia@caav.mx' style={{color:'#A80938'}}>
+                                            <u>aquí </u>
+                                        </a> 
+                                        antes del <b>{editar.fecha_fin_4}</b>, <br/>
+                                        para concertar tu cita virtual. <br/><br/>
 
-                                    <b>Horarios de citas: </b><br/>
-                                    {editar.horario_2}
-                                </p>
+                                        <b>Horarios de citas: </b><br/>
+                                        {editar.horario_1}
+                                    </p>
+                                </div>
+                                <div className='col s12 m12 l6 center'>
+                                    <p style={{marginTop:'0'}}>
+                                        <b>Si estás estudiando en presencial:</b><br/>
+                                        Acude a la Coordinación Académica<br/>
+                                        con tu ficha de reinscripción.<br/><br/>
+
+                                        <b>Horarios de citas: </b><br/>
+                                        {editar.horario_2}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div style={{background:"#A80938", color:"#fff", padding:"10px 0", position:"relative", zIndex:"-9"}}>
-                    <div className='container contenedor_xch center'>
-                        <p style={{margin:"0"}}>
-                            Costo materia a repetir: <b> {editar.costo_materia}</b><br/><br/>
-                            Si haces tu horario especial después de las fechas establecidas, el precio cambia: <br/>
-                            una semana de retraso: <b> {editar.costo_materia_atrasado}, </b> 
-                            dos semanas de retraso: <b> {editar.costo_materia_atrasado_2}</b>
-                        </p>
+                    <div style={{background:"#A80938", color:"#fff", padding:"10px 0", position:"relative", zIndex:"-9"}}>
+                        <div className='container contenedor_xch center'>
+                            <p style={{margin:"0"}}>
+                                Costo materia a repetir: <b> {editar.costo_materia}</b><br/><br/>
+                                Si haces tu horario especial después de las fechas establecidas, el precio cambia: <br/>
+                                una semana de retraso: <b> {editar.costo_materia_atrasado}, </b> 
+                                dos semanas de retraso: <b> {editar.costo_materia_atrasado_2}</b>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
             <div className='container center'>
                 <p style={{color:"#a80938", fontWeight:"bold"}}>
                     Precios sujetos a cambio
