@@ -160,7 +160,7 @@ const Profesores = props => {
                     <p className='titulo_1_admin'>Profesores</p>
                     
                     <form onSubmit={agregar}>
-                        <img alt="imagagen subida" width="100%" src={profesores.archivo}></img>
+                        <img alt="imagen subida" width="100%" src={profesores.archivo}></img>
                         <div class="file-field input-field">
                             <div class="btn">
                                 <span>File</span>
@@ -197,7 +197,7 @@ const Profesores = props => {
                         <Loader />
                     ) : (
                         <form onSubmit={actualizar}>
-                            <img alt="imagagen subida" width="100%" src={profesores.archivo}></img>
+                            <img alt="imagen subida" width="100%" src={profesores.archivo}></img>
                             <div class="file-field input-field">
                                 <div class="btn">
                                     <span>File</span>

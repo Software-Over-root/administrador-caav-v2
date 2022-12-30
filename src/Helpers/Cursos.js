@@ -2,58 +2,44 @@ import Swal from 'sweetalert2';
 
 var url_json = require("../location.json");
 
-if (window.location.origin === ":3000") {
+console.log(window.location);
+if (window.location.origin === "http://localhost:3000") {
     url_json = url_json.local;
 } else {
     url_json = url_json.production;
 }
 
+console.log(url_json);
+
 const Cursos = {
     agregarCurso: async (data) => {
         let url = url_json + "/agregar-curso"
         let body = {
-            animacion: data.animacion,
-            artes: data.artes,
-            audio: data.audio,
-            cine: data.cine,
-            classroom: data.classroom,
-            costoNumero: data.costoNumero,
-            costo_mensual: data.costo_mensual,
-            costo_sabatino: data.costo_sabatino,
-            costo_total: data.costo_total,
-            costo_unico_pago: data.costo_unico_pago,
-            curso: data.curso,
-            cursoTipo: data.cursoTipo,
-            cursos: data.cursos,
-            descripcion: data.descripcion,
-            descripcionResumen: data.descripcionResumen,
-            diplomados: data.diplomados,
-            escritura: data.escritura,
-            fechas1dias: data.fechas1dias,
-            fechas1duracion: data.fechas1duracion,
-            fechas1fecha: data.fechas1fecha,
-            fechas1horario: data.fechas1horario,
-            fechas1sesiones: data.fechas1sesiones,
-            fechas1tutor: data.fechas1tutor,
-            fechas2dias: data.fechas2dias,
-            fechas2duracion: data.fechas2duracion,
-            fechas2fecha: data.fechas2fecha,
-            fechas2horario: data.fechas2horario,
-            fechas2sesiones: data.fechas2sesiones,
-            fechas2tutor: data.fechas2tutor,
-            fechasNumero: data.fechasNumero,
-            fotografia: data.fotografia,
+            area: data.area,
+            carrusel_imagenes: data.carrusel_imagenes,
+            contenido: data.contenido,
+            data_pago: data.data_pago,
+            descripcion_externa: data.descripcion_externa,
+            descripcion_interna: data.descripcion_interna,
+            etiquetas: data.etiquetas,
+            fecha_fin: data.fecha_fin,
+            fecha_inicio: data.fecha_inicio,
+            fecha_relampago: data.fecha_relampago,
+            fechas: data.fechas,
+            formato_pago: data.formato_pago,
+            formato: data.formato,
             gratis: data.gratis,
-            hibrido: data.hibrido,
-            linea: data.linea,
-            multimedia: data.multimedia,
+            hora_fin: data.hora_fin,
+            hora_inicio: data.hora_inicio,
+            imagen_externa: data.imagen_externa,
+            imagen_gif: data.imagen_gif,
+            imagen_indvidual: data.imagen_indvidual,
+            imagen_interna: data.imagen_interna,
+            modalidad: data.modalidad,
+            nivel: data.nivel,
             nombre: data.nombre,
-            presencial: data.presencial,
-            programa: data.programa,
-            publicidad: data.publicidad,
-            archivo: data.archivo,
-            talleres: data.talleres,
-            video: data.video
+            oferta_relampago: data.oferta_relampago,
+            requisitos: data.requisitos
         };
         let request = {
             method: 'POST',
@@ -122,50 +108,32 @@ const Cursos = {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 let url = url_json + "/actualizar-curso/" + id;
-
                 let body = {
-                    animacion: data.animacion,
-                    artes: data.artes,
-                    audio: data.audio,
-                    cine: data.cine,
-                    classroom: data.classroom,
-                    costoNumero: data.costoNumero,
-                    costo_mensual: data.costo_mensual,
-                    costo_sabatino: data.costo_sabatino,
-                    costo_total: data.costo_total,
-                    costo_unico_pago: data.costo_unico_pago,
-                    curso: data.curso,
-                    cursoTipo: data.cursoTipo,
-                    cursos: data.cursos,
-                    descripcion: data.descripcion,
-                    descripcionResumen: data.descripcionResumen,
-                    diplomados: data.diplomados,
-                    escritura: data.escritura,
-                    fechas1dias: data.fechas1dias,
-                    fechas1duracion: data.fechas1duracion,
-                    fechas1fecha: data.fechas1fecha,
-                    fechas1horario: data.fechas1horario,
-                    fechas1sesiones: data.fechas1sesiones,
-                    fechas1tutor: data.fechas1tutor,
-                    fechas2dias: data.fechas2dias,
-                    fechas2duracion: data.fechas2duracion,
-                    fechas2fecha: data.fechas2fecha,
-                    fechas2horario: data.fechas2horario,
-                    fechas2sesiones: data.fechas2sesiones,
-                    fechas2tutor: data.fechas2tutor,
-                    fechasNumero: data.fechasNumero,
-                    fotografia: data.fotografia,
+                    area: data.area,
+                    carrusel_imagenes: data.carrusel_imagenes,
+                    contenido: data.contenido,
+                    data_pago: data.data_pago,
+                    descripcion_externa: data.descripcion_externa,
+                    descripcion_interna: data.descripcion_interna,
+                    etiquetas: data.etiquetas,
+                    fecha_fin: data.fecha_fin,
+                    fecha_inicio: data.fecha_inicio,
+                    fecha_relampago: data.fecha_relampago,
+                    fechas: data.fechas,
+                    formato_pago: data.formato_pago,
+                    formato: data.formato,
                     gratis: data.gratis,
-                    hibrido: data.hibrido,
-                    linea: data.linea,
-                    multimedia: data.multimedia,
+                    hora_fin: data.hora_fin,
+                    hora_inicio: data.hora_inicio,
+                    imagen_externa: data.imagen_externa,
+                    imagen_gif: data.imagen_gif,
+                    imagen_indvidual: data.imagen_indvidual,
+                    imagen_interna: data.imagen_interna,
+                    modalidad: data.modalidad,
+                    nivel: data.nivel,
                     nombre: data.nombre,
-                    presencial: data.presencial,
-                    programa: data.programa,
-                    publicidad: data.publicidad,
-                    archivo: data.archivo,
-                    talleres: data.talleres,
-                    video: data.video
+                    oferta_relampago: data.oferta_relampago,
+                    requisitos: data.requisitos
                 };
                 let request = {
                     method: 'PUT',
@@ -184,6 +152,7 @@ const Cursos = {
                         'success'
                     ).then(() => {
                         window.location.reload();
+                        // window.location.replace("/cursos-diplomados");
                     })
                 } else {
                     Swal.fire(
@@ -231,7 +200,7 @@ const Cursos = {
                         'Curso eliminado correctamente' ,
                         'success'
                     ).then(() => {
-                        window.location.reload();
+                        window.location.replace("/cursos-diplomados");
                     })
                 } else {
                     Swal.fire(
@@ -251,7 +220,37 @@ const Cursos = {
                 )
             }
         })
-    }
+    },
+    obtenerUnCursoArea: async area => {
+        let url = url_json + "/obtener-curso-area"
+        let body = {
+            area
+        }
+        let request = {
+            method:'POST',
+            body: JSON.stringify(body),
+            headers: {
+                "Content-type":"application/json; charset=UTF-8"
+            }
+        }
+
+        let response = await fetch(url, request);
+        let json = await response.json();
+        return json;
+    },
+    obtenerUnCursoNombre: async nombre => {
+        let url = url_json + "/obtener-curso-nombre/" + nombre
+        let request = {
+            method:'GET',
+            headers: {
+                "Content-type":"application/json; charset=UTF-8"
+            }
+        }
+
+        let response = await fetch(url, request);
+        let json = await response.json();
+        return json;
+    },
 }
 
 export default Cursos;

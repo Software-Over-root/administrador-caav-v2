@@ -1,0 +1,422 @@
+
+
+
+/* nuevo css */
+
+/* textos */
+.curso_d3{
+    color: #843DC7;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.curso_titulo_d3{
+    font-weight: bold;
+    margin: 0px;
+}
+
+.curso_impartido_d3{
+    color: #707070;
+    margin-top: 0px;
+}
+
+.curso_pagos_d3{
+    margin: 0px;
+}
+/* fin - textos */
+
+/* etiqueta curso */
+.tipo_curso{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    height: 0px;
+    top: 10px;
+    background: #ffffff;
+}
+.tipo_curso > p{
+    margin: 0px;
+}
+
+.tipo_curso_2{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    height: 0px;
+    top: 10px;
+    background: #ffffff;
+}
+.tipo_curso_2 > p{
+    margin: 0px;
+}
+
+.tipo_precencial > p{
+    text-align: center;
+    width: 100px;
+    font-size: 12px;
+    padding: 2px 0px;
+    background: #64C5DD;
+    color: #ffffff;
+}
+.tipo_hibrido > p{
+    width: 100px;
+    font-size: 12px;
+    padding: 2px 0px;
+    text-align: center;
+    background: #64C5DD;
+    color: #ffffff;
+}
+.tipo_video > p{
+    width: 100px;
+    font-size: 12px;
+    padding: 2px 0px;
+    text-align: center;
+    background: #64C5DD;
+    color: #000000;
+}
+.tipo_classroom > p{
+    width: 100px;
+    font-size: 12px;
+    padding: 2px 0px;
+    text-align: center;
+    background: #64C5DD;
+    color: #000000;
+}
+.tipo_talleres > p{
+    width: 100px;
+    font-size: 12px;
+    padding: 2px 0px;
+    text-align: center;
+    background: #F49A3F;
+    color: #ffffff;
+}
+.tipo_cursos > p{
+    width: 100px;
+    font-size: 12px;
+    padding: 2px 0px;
+    text-align: center;
+    background: #F49A3F;
+    color: #ffffff;
+}
+.tipo_diplomados > p{
+    width: 100px;
+    font-size: 12px;
+    padding: 2px 0px;
+    text-align: center;
+    background: #F49A3F;
+    color: #ffffff;
+}
+/* fin - etiqueta curso */
+
+/* efecto */
+.imagen-hover-3{
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    overflow: hidden;
+}
+.contenedor-hover-3 img{
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+}
+.hover-3:hover .imagen-hover-3 img{
+    transform: scale(1.1) ;
+    transition: all 0.3s ease-in-out;
+}
+/* fin - efecto */
+
+/* botones */
+.boton_precencial{
+    margin: 20px 0px;
+    font-weight: bold;
+    width: 195px;
+    background-color: #781034 !important;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    margin: 10px;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Montserrat';
+}
+.boton_precencial:hover{
+    box-shadow: 0px 0px 15px #781034;
+    transition: all 0.3s ease-in-out;
+}
+.boton_curso_d3_active:focus{
+    background-color: #781034;
+}
+
+.boton_hibrido{
+    margin: 20px 0px;
+    font-weight: bold;
+    width: 195px;
+    background-color: #A80938 !important;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    margin: 10px;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Montserrat';
+}
+.boton_hibrido:hover{
+    box-shadow: 0px 0px 15px #A80938;
+    transition: all 0.3s ease-in-out;
+}
+.boton_curso_d3_active:focus{
+    background-color: #A80938;
+}
+
+.boton_reunion{
+    margin: 20px 0px;
+    font-weight: bold;
+    width: 195px;
+    background-color: #AFAFAF !important;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    margin: 10px;
+    text-align: center;
+    color: #000000;
+    padding: 10px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Montserrat';
+}
+.boton_reunion:hover{
+    box-shadow: 0px 0px 15px #AFAFAF;
+    transition: all 0.3s ease-in-out;
+}
+.boton_curso_d3_active:focus{
+    background-color: #AFAFAF;
+}
+
+.boton_classroom{
+    margin: 20px 0px;
+    font-weight: bold;
+    width: 195px;
+    background-color: #E4E4E4 !important;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    margin: 10px;
+    text-align: center;
+    color: #000000;
+    padding: 10px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Montserrat';
+}
+.boton_classroom:hover{
+    box-shadow: 0px 0px 15px #E4E4E4;
+    transition: all 0.3s ease-in-out;
+}
+.boton_classroom:focus{
+    background-color: #E4E4E4;
+}
+
+.boton_formato{
+    margin: 20px 0px;
+    font-weight: bold;
+    width: 195px;
+    background-color: #00496C !important;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    margin: 10px;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Montserrat';
+}
+.boton_formato:hover{
+    box-shadow: 0px 0px 15px #00496C;
+    transition: all 0.3s ease-in-out;
+}
+.boton_formato:focus{
+    background-color: #00496C;
+}
+
+
+.boton_curso_d3 {
+    margin: 20px 0px;
+    font-weight: bold;
+    width: 195px;
+    background-color: #ffffff;
+    border: solid 1px #707070;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    margin: 10px;
+    text-align: center;
+    color: #000000;
+    padding: 10px;
+    font-family: 'Montserrat';
+}
+.boton_curso_d3:hover{
+    background-color: #707070;
+    color: #ffffff;
+    transition: all 0.5s ease-in-out;
+}
+.boton_curso_d3_active{
+    margin: 20px 0px;
+    font-weight: bold;
+    width: 195px;
+    background-color: #707070;
+    border: solid 1px #707070;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    color: #ffffff;
+}
+.boton_curso_d3_active:focus{
+    background-color: #707070;
+}
+
+.curso_boton_d3{
+    /* height: 43px; */
+    border: solid 2px #AE4DEB;
+    background-color: #AE4DEB;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 35px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.curso_boton_d3:hover{
+    box-shadow: 0px 0px 15px #AE4DEB;
+    transition: all 0.3s ease-in-out;
+}
+
+.boton_mostrar_cursos > button{
+    /* margin-left: 45%; */
+    font-weight: bold;
+    background-color: #A80938;
+    border: solid 1px #A80938;
+    border-radius: 50px;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Montserrat';
+}
+.boton_mostrar_cursos > button:hover{
+    box-shadow: 0px 0px 15px #A80938;
+    transition: all 0.3s ease-in-out;
+}
+.boton_mostrar_cursos > button p{
+    margin-top: 12px;
+    margin: 0px;
+}
+/* fin - botones */
+
+/* flex */
+.flex_d1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex_padre_2_d3{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.hijo_2_d3{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* fin - flex */
+
+/* fomurlario */
+.busqueda_cursos{
+    width: 585px;
+    height: 45px;
+}
+/* fin - fomurlario */
+
+.hijo_1_d3_nv{
+    width: 650px;
+}
+
+@media only screen and (min-width:200px) and (max-width:550px){
+    .hijo_2_d3{
+        width: 50%;
+    }
+
+    .hijo_3_d3{
+        width: 100%;
+        padding: 10px;
+    }
+
+    .busqueda_cursos{
+        width: 354px;
+        height: 33px;
+        margin-bottom: 3%;
+    }
+
+    .boton_precencial,
+    .boton_hibrido,
+    .boton_reunion,
+    .boton_classroom,
+    .boton_curso_d3{
+        height: 50px;
+        font-size: 12px;
+    }
+}
+@media only screen and (min-width:551px) and (max-width:980px){
+    .hijo_1_d3_nv{
+        width: 500px;
+    }
+
+    .hijo_3_d3{
+        width: 33.333333%;
+        padding: 10px;
+    }
+
+    .busqueda_cursos{
+        width: 450px;
+        height: 33px;
+    }
+
+    .boton_precencial,
+    .boton_hibrido,
+    .boton_reunion,
+    .boton_classroom,
+    .boton_curso_d3{
+        height: 52px;
+    }
+}
+@media only screen and (min-width:981px) and (max-width:1664px){
+    .hijo_3_d3{
+        width: 25%;
+        padding: 10px;
+    }
+
+    .contenedor_curso{
+        width: 80% !important;
+    }
+}
+@media only screen and (min-width:1665px){
+    .hijo_3_d3{
+        width: 25%;
+        padding: 10px;
+    }
+}
+
+/* fin - nuevo css */

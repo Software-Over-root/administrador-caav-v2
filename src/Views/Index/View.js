@@ -362,7 +362,7 @@ const Index = props => {
                     <img src={img5} alt="Licenciatura Audiovisuales" style={{width:"100%"}} />
                 </div>
                 <div className='flex_hijo_1_nv contenedor_3_index'>
-                    <h1 className='titulo_1_nv' style={{marginBottom:"0px", marginTop:"10px"}}>Cursos y diplomados</h1>
+                    <h1 className='titulo_1_nv' style={{marginBottom:"0px", marginTop:"10px"}}>Cursos, talleres y diplomados</h1>
                     <p>
                         Tenemos más de 130 cursos y diplomados, <br />
                         clasificados en ocho áreas de conocimiento.

@@ -18,6 +18,7 @@ import FAQs from '../Views/FAQs/Preguntas';
 // import Blogs from '../Views/Blogs/Blogs';
 import CursosGeneral from '../Views/Cursos/General';
 import Cursos from '../Views/Cursos/Cursos';
+import Curso from '../Views/Cursos/Curso';
 
 
 // import LicenciaturaCine from '../Views/Licenciaturas/Cine/Cine';
@@ -42,6 +43,8 @@ import AgregarPdf from '../Views/AgregarPdf/AgregarPdf';
 import Administradores from '../Views/Administradores/Administradores';
 import EditarAdministrador from '../Views/Administradores/EditarAdministrador';
 import AgregarAdministrador from '../Views/Administradores/AgregarAdmin';
+
+import Etiquetas from '../Views/Etiquetas/Etiquetas';
 
 
 const RouterFunction = () => {
@@ -83,6 +86,9 @@ const RouterFunction = () => {
 
                 <Route path="/cursos-diplomados" element={<CursosGeneral />} />
                 <Route path="/cursos/:tipo" element={<Cursos />} />
+                <Route path="/curso/:id" element={<Curso />} />
+
+                <Route path="/etiquetas" element={<Etiquetas />} />
 
 
                 {/* <Route path="/licenciaturas/cine" element={<LicenciaturaCine />} /> */}

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import CryptoJS from "react-native-crypto-js";
 
 import logo from "../Images/logo.png";
 
 import adminsHelper from '../Helpers/Admin';
-import { useAuth } from '../Context/Context';
 
 const Login = () => {
     const [login, setLogin] = useState({});
-    const { user, setUser } = useAuth();
 
     const leerDato = e => {
         setLogin({
@@ -18,24 +17,30 @@ const Login = () => {
     }
 
     const inicioSesion = async e => {
-        console.log(user);
         e.preventDefault();
         let res = await adminsHelper.login(login.correo, login.password);
         console.log(res);
         if (res.data.length > 0) {
-            setUser({
+            let body = {
                 nombre:res.data[0].tipoMostrar, 
                 tipo:res.data[0].tipo, 
                 id:res.data[0]._id, 
                 puesto:res.data[0].tipoMostrar,
-                correo:res.data[0].correo
-            });
+                // correo:res.data[0].correo
+            }
+            let ciphertext = CryptoJS.AES.encrypt(JSON.stringify(body), 'Y2Fhdg==').toString();
+
+            localStorage.setItem("_cv_data_", ciphertext);
+            localStorage.setItem("_cv_", res.data[0]._id);
+            console.log(body);
+
             Swal.fire(
                 'Inicio exitoso' ,
                 '¡Bienvenido!',
                 'success'
             ).then(() => {
-                window.location.replace("/administradores");
+                // window.location.replace("/administradores");
+                window.location.replace("/cursos-diplomados");
             });
         } else {
             Swal.fire(

@@ -1,0 +1,131 @@
+/* collapsible */
+.collapsible_curso{
+    border-radius: 20px;
+    border: none;
+    box-shadow: none;
+}
+.collapsible-header_curso{
+    border-bottom: none;
+    padding: 20px 40px !important;
+    background: #AE4DEB;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+}
+.collapsible-body_curso{
+    color: rgb(255, 255, 255);
+    background: rgb(174, 77, 235);
+    border-radius: 0px 0px 20px 20px;
+    padding: 0 40px 20px 40px;
+}
+/* fin - collapsible */
+
+.inversiones{
+    background-color: #AE4DEB;
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+}
+.inversiones p{
+    margin: 0px;
+}
+
+.pagar_curso{
+    background-color: #3B99C5;
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+}
+.pagar_curso  p{
+    margin: 0px;
+}
+
+/* inicio - fixme cursos */
+.curso_fixme{
+    position: fixed !important;
+    top: 50px;
+    transition: all ease-in-out 0.3s;
+}
+.curso_fijo, .curso_fixme{
+    border: solid 1px #707070;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-right: 21%;
+}
+.seccion_curso_fixme{
+    padding: 10px 30px;
+}
+
+.etiqueta{
+    background-color: #B62B93;
+    color: #fff;
+    font-weight: bold;
+    padding: 0 0 0 10px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.etiqueta_fin{
+    background-color: #B62B93;
+    color: #B62B93;
+    clip-path: polygon(100% 0%, 70% 50%, 100% 100%, 0 100%, 0 0);
+    padding: 0 10px;
+    margin: 5px 5px 5px 0;
+}
+/* fin - fixme cursos */
+
+.boton_curso{
+    background: #00B5C1;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+strong{
+    font-weight: bold;
+}
+@media only screen and (min-width:200px) and (max-width:550px){
+    .informacion_curso h4{
+        font-family: 'Montserrat', 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        color: #AE4DEB;
+    }
+}
+@media only screen and (min-width:551px) and (max-width:980px){
+    .informacion_curso h4{
+        font-family: 'Montserrat', 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        color: #AE4DEB;
+    }
+}
+@media only screen and (min-width:981px) and (max-width:1664px){
+    .informacion_curso h4{
+        font-family: 'Montserrat', 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: #AE4DEB;
+    }
+}
+@media only screen and (min-width:1665px){
+    .informacion_curso h4{
+        font-family: 'Montserrat', 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: #AE4DEB;
+    }
+}

@@ -83,7 +83,7 @@ const Directorio = props => {
                         <p>En linea</p>
                         <div className="input-field">
                             <input onChange={leerDato} defaultValue={editar.fecha_fin_4} id="fecha_fin_4" name='fecha_fin_4' type="text" className="validate" />
-                            <label className='active' for="fecha_fin_4">Fecha limite:</label>
+                            <label className='active' for="fecha_fin_4">Fecha límite:</label>
                         </div>
                         <div className="input-field">
                             <input onChange={leerDato} defaultValue={editar.horario_1} id="horario_1" name='horario_1' type="text" className="validate" />

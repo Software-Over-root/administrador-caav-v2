@@ -75,7 +75,7 @@ const Directorio = props => {
                         </div>
                         <div className="input-field">
                             <input onChange={leerDato} id="numero" name='numero' type="text" className="validate" />
-                            <label for="numero">Numero</label>
+                            <label for="numero">Número</label>
                         </div>
                         <div className="input-field">
                             <input onChange={leerDato} id="posicion" name='posicion' type="text" className="validate" />
@@ -109,7 +109,7 @@ const Directorio = props => {
                             </div>
                             <div className="input-field">
                                 <input onChange={leerDato} defaultValue={directorio.numero} id="numero" name='numero' type="text" className="validate" />
-                                <label className='active' for="numero">Numero</label>
+                                <label className='active' for="numero">Número</label>
                             </div>
                             <div className="input-field">
                                 <input onChange={leerDato} defaultValue={directorio.posicion} id="posicion" name='posicion' type="text" className="validate" />
